@@ -1,3 +1,5 @@
+// +build amd64
+
 TEXT ·sseSupported(SB), $0
     MOVQ    $1, AX
     CPUID
