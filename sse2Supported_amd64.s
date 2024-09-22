@@ -1,13 +1,13 @@
 // +build amd64
 
-TEXT ·sseSupported(SB), $0
+TEXT ·sse2Supported(SB), $0
     MOVQ    $1, AX
     CPUID
-    TESTQ   $(1<<25), DX
-    JZ      sseFalse
-sseTrue:
+    TESTQ   $(1<<26), DX
+    JZ      sse2False
+sse2True:
     MOVQ    $1, AX
     RET
-sseFalse:
+sse2False:
     MOVQ    $0, AX
     RET
