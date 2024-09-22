@@ -5,10 +5,6 @@ import (
     "fmt"
 )
 
-func TestHello(t *testing.T) {
-    fmt.Println("Hello, friend.")
-}
-
 func TestType(t *testing.T) {
     a := []int32{1, 2, 3, 4}
     b := []int32{3, 4, 5, 6}
