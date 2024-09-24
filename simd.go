@@ -7,19 +7,14 @@ type (
     operation[E element] func(left, right, result []E)
 )
 
-func minThree(first, second, third int) int {
-    min := first
-    if second < min {
-        min = second
-    }
-    if third < min {
-        min = third
-    }
-    return min
-}
-
 func add[E element](left, right, result []E) {
-    n := minThree(len(left), len(right), len(result))
+    n := len(result)
+    if len(left) < n {
+        n = len(left)
+    }
+    if len(right) < n {
+        n = len(right)
+    }
     i := 0
     for n-i >= 4 {
         result[i] = left[i] + right[i]
@@ -35,7 +30,13 @@ func add[E element](left, right, result []E) {
 }
 
 func sub[E element](left, right, result []E) {
-    n := minThree(len(left), len(right), len(result))
+    n := len(result)
+    if len(left) < n {
+        n = len(left)
+    }
+    if len(right) < n {
+        n = len(right)
+    }
     i := 0
     for n-i >= 4 {
         result[i] = left[i] - right[i]
@@ -51,7 +52,13 @@ func sub[E element](left, right, result []E) {
 }
 
 func mul[E element](left, right, result []E) {
-    n := minThree(len(left), len(right), len(result))
+    n := len(result)
+    if len(left) < n {
+        n = len(left)
+    }
+    if len(right) < n {
+        n = len(right)
+    }
     i := 0
     for n-i >= 4 {
         result[i] = left[i] * right[i]
@@ -67,7 +74,13 @@ func mul[E element](left, right, result []E) {
 }
 
 func div[E element](left, right, result []E) {
-    n := minThree(len(left), len(right), len(result))
+    n := len(result)
+    if len(left) < n {
+        n = len(left)
+    }
+    if len(right) < n {
+        n = len(right)
+    }
     i := 0
     for n-i >= 4 {
         result[i] = left[i] / right[i]

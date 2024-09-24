@@ -7,8 +7,8 @@ TEXT ·avxSupported(SB), $0
     TESTQ   $(1<<28), CX
     JZ      avxFalse
 avxTrue:
-    MOVQ    $1, AX
+    MOVQ    $1, returnValue+0(FP)
     RET
 avxFalse:
-    MOVQ    $0, AX
+    MOVQ    $0, returnValue+0(FP)
     RET
