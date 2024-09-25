@@ -1,14 +1,15 @@
 // +build amd64
 
-TEXT ·sseSupported(SB), $0
+// func sseSupported() bool
+TEXT ·sseSupported(SB), 4, $0
     MOVQ    $1, AX
     MOVQ    $0, CX
     CPUID
     TESTQ   $(1<<25), DX
     JZ      sseFalse
 sseTrue:
-    MOVQ    $1, returnValue+0(FP)
+    MOVQ    $1, bool+0(FP)
     RET
 sseFalse:
-    MOVQ    $0, returnValue+0(FP)
+    MOVQ    $0, bool+0(FP)
     RET

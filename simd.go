@@ -4,10 +4,10 @@ type (
     element interface {
         int8 | int16 | int32 | int64 | float32 | float64
     }
-    operation[E element] func(left, right, result []E)
+    operation[E element] func(left, right, result []E) int
 )
 
-func add[E element](left, right, result []E) {
+func add[E element](left, right, result []E) int {
     n := len(result)
     if len(left) < n {
         n = len(left)
@@ -27,9 +27,10 @@ func add[E element](left, right, result []E) {
         result[i] = left[i] + right[i]
         i += 1
     }
+    return n
 }
 
-func sub[E element](left, right, result []E) {
+func sub[E element](left, right, result []E) int {
     n := len(result)
     if len(left) < n {
         n = len(left)
@@ -49,9 +50,10 @@ func sub[E element](left, right, result []E) {
         result[i] = left[i] - right[i]
         i += 1
     }
+    return n
 }
 
-func mul[E element](left, right, result []E) {
+func mul[E element](left, right, result []E) int {
     n := len(result)
     if len(left) < n {
         n = len(left)
@@ -71,9 +73,10 @@ func mul[E element](left, right, result []E) {
         result[i] = left[i] * right[i]
         i += 1
     }
+    return n
 }
 
-func div[E element](left, right, result []E) {
+func div[E element](left, right, result []E) int {
     n := len(result)
     if len(left) < n {
         n = len(left)
@@ -93,6 +96,7 @@ func div[E element](left, right, result []E) {
         result[i] = left[i] / right[i]
         i += 1
     }
+    return n
 }
 
 var (
