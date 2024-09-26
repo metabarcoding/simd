@@ -18,7 +18,7 @@ func createRandomSlice(size int) []float32 {
 
 // Benchmark for Function1
 func BenchmarkCode(b *testing.B) {
-	size := 4096 // Choose the slice size
+	size := 4098 // Choose the slice size
 	a := createRandomSlice(size)
 	bb := createRandomSlice(size)
 	result := make([]float32, size)
@@ -32,7 +32,7 @@ func BenchmarkCode(b *testing.B) {
 
 // Benchmark for Function2
 func BenchmarkSimd(b *testing.B) {
-	size := 4096 // Choose the slice size
+	size := 4098 // Choose the slice size
 	a := createRandomSlice(size)
 	bb := createRandomSlice(size)
 	result := make([]float32, size)

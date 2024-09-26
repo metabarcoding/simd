@@ -17,18 +17,18 @@ initializeLoops:
     MOVQ    leftData+0(FP), SI
     MOVQ    rightData+24(FP), DX
     MOVQ    resultData+48(FP), DI
-divQuadrupleLoop:
+multipleDataLoop:
     MOVQ    CX, BX
     SUBQ    AX, BX
     CMPQ    BX, $4
-    JL      divSingleLoop
+    JL      singleDataLoop
     MOVUPS  (SI)(AX*4), X0
     MOVUPS  (DX)(AX*4), X1
     DIVPS   X1, X0
     MOVUPS  X0, (DI)(AX*4)
     ADDQ    $4, AX
-    JMP     divQuadrupleLoop
-divSingleLoop:
+    JMP     multipleDataLoop
+singleDataLoop:
     CMPQ    AX, CX
     JGE     returnLength
     MOVSS   (SI)(AX*4), X0
@@ -36,7 +36,7 @@ divSingleLoop:
     DIVSS   X1, X0
     MOVSS   X0, (DI)(AX*4)
     INCQ    AX
-    JMP     divSingleLoop
+    JMP     singleDataLoop
 returnLength:
     MOVQ CX, int+72(FP)
     RET
