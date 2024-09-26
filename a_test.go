@@ -2,47 +2,7 @@ package simd
 
 import (
 	"testing"
-	"math/rand"
-	"time"
 )
-
-// Helper function to create random float32 slices
-func createRandomSlice(size int) []float32 {
-	rand.Seed(time.Now().UnixNano())
-	slice := make([]float32, size)
-	for i := range slice {
-		slice[i] = rand.Float32()
-	}
-	return slice
-}
-
-// Benchmark for Function1
-func BenchmarkCode(b *testing.B) {
-	size := 4098 // Choose the slice size
-	a := createRandomSlice(size)
-	bb := createRandomSlice(size)
-	result := make([]float32, size)
-
-	// Reset the timer and run the benchmark
-	b.ResetTimer()
-	for i := 0; i < b.N; i++ {
-		div(a, bb, result)
-	}
-}
-
-// Benchmark for Function2
-func BenchmarkSimd(b *testing.B) {
-	size := 4098 // Choose the slice size
-	a := createRandomSlice(size)
-	bb := createRandomSlice(size)
-	result := make([]float32, size)
-
-	// Reset the timer and run the benchmark
-	b.ResetTimer()
-	for i := 0; i < b.N; i++ {
-		DivFloat32(a, bb, result)
-	}
-}
 
 func TestSimdAdd(t *testing.T) {
 	// Define a small prime number for the array size

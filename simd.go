@@ -9,92 +9,86 @@ type (
 
 func add[E element](left, right, result []E) int {
     n := len(result)
-    if len(left) < n {
-        n = len(left)
+    if m := len(left); m < n {
+        n = m
     }
-    if len(right) < n {
-        n = len(right)
+    if m := len(right); m < n {
+        n = m
     }
     i := 0
-    for n-i >= 4 {
+    for ; n-i >= 4; i += 4 {
         result[i] = left[i] + right[i]
         result[i+1] = left[i+1] + right[i+1]
         result[i+2] = left[i+2] + right[i+2]
         result[i+3] = left[i+3] + right[i+3]
-        i += 4
     }
-    for i < n {
+    for ; i < n; i++ {
         result[i] = left[i] + right[i]
-        i += 1
     }
     return n
 }
 
 func sub[E element](left, right, result []E) int {
     n := len(result)
-    if len(left) < n {
-        n = len(left)
+    if m := len(left); m < n {
+        n = m
     }
-    if len(right) < n {
-        n = len(right)
+    if m := len(right); m < n {
+        n = m
     }
     i := 0
-    for n-i >= 4 {
+    for ; n-i >= 4; i += 4 {
         result[i] = left[i] - right[i]
         result[i+1] = left[i+1] - right[i+1]
         result[i+2] = left[i+2] - right[i+2]
         result[i+3] = left[i+3] - right[i+3]
         i += 4
     }
-    for i < n {
+    for ; i < n; i++ {
         result[i] = left[i] - right[i]
-        i += 1
     }
     return n
 }
 
 func mul[E element](left, right, result []E) int {
     n := len(result)
-    if len(left) < n {
-        n = len(left)
+    if m := len(left); m < n {
+        n = m
     }
-    if len(right) < n {
-        n = len(right)
+    if m := len(right); m < n {
+        n = m
     }
     i := 0
-    for n-i >= 4 {
+    for ; n-i >= 4; i += 4 {
         result[i] = left[i] * right[i]
         result[i+1] = left[i+1] * right[i+1]
         result[i+2] = left[i+2] * right[i+2]
         result[i+3] = left[i+3] * right[i+3]
-        i += 4
     }
-    for i < n {
+    for ; i < n; i++ {
         result[i] = left[i] * right[i]
-        i += 1
     }
     return n
 }
 
 func div[E element](left, right, result []E) int {
     n := len(result)
-    if len(left) < n {
-        n = len(left)
+    if m := len(left); m < n {
+        n = m
     }
-    if len(right) < n {
-        n = len(right)
+    if m := len(right); m < n {
+        n = m
     }
     i := 0
-    for n-i >= 4 {
+    for ; n-i >= 4; i += 4 {
         result[i] = left[i] / right[i]
         result[i+1] = left[i+1] / right[i+1]
         result[i+2] = left[i+2] / right[i+2]
         result[i+3] = left[i+3] / right[i+3]
         i += 4
     }
-    for i < n {
+    for ; i < n; i++ {
         result[i] = left[i] / right[i]
-        i += 1
     }
     return n
 }
