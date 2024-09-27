@@ -48,32 +48,32 @@ func checkResult[E element](t *testing.T, o operation[E], left, right, result, e
     }
 }
 
-func TestSimdAdd(t *testing.T) {
-    checkResult(t, sseAddFloat32,
+func TestAddFloat32(t *testing.T) {
+    checkResult(t, AddFloat32,
         []float32{1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0},
         []float32{10.0, 20.0, 30.0, 40.0, 50.0, 60.0, 70.0, 80.0, 90.0, 1000.0, 1100.0},
         make([]float32, 16),
         []float32{11.0, 22.0, 33.0, 44.0, 55.0, 66.0, 77.0, 88.0, 99.0, 1010.0, 1111.0})
 }
 
-func TestSimdSub(t *testing.T) {
-    checkResult(t, sseSubFloat32,
+func TestSubFloat32(t *testing.T) {
+    checkResult(t, SubFloat32,
         []float32{11.0, 22.0, 33.0, 44.0, 55.0, 66.0, 77.0, 88.0, 99.0, 1010.0, 1111.0},
         []float32{10.0, 20.0, 30.0, 40.0, 50.0, 60.0, 70.0, 80.0, 90.0, 1000.0, 1100.0},
         make([]float32, 16),
         []float32{1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0})
 }
 
-func TestSimdMul(t *testing.T) {
-    checkResult(t, sseMulFloat32,
+func TestMulFloat32(t *testing.T) {
+    checkResult(t, MulFloat32,
         []float32{1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0},
         []float32{10.0, 20.0, 30.0, 40.0, 50.0, 60.0, 70.0, 80.0, 90.0, 100.0, 110.0},
         make([]float32, 16),
         []float32{10.0, 40.0, 90.0, 160.0, 250.0, 360.0, 490.0, 640.0, 810.0, 1000.0, 1210.0})
 }
 
-func TestSimdDiv(t *testing.T) {
-    checkResult(t, sseDivFloat32,
+func TestDivFloat32(t *testing.T) {
+    checkResult(t, DivFloat32,
         []float32{10.0, 25.0, 36.0, 49.0, 50.0, 72.0, 98.0, 120.0, 135.0, 200.0, 220.0},
         []float32{2.0, 5.0, 6.0, 7.0, 10.0, 8.0, 14.0, 15.0, 27.0, 20.0, 22.0},
         make([]float32, 16),
