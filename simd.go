@@ -145,7 +145,7 @@ func MulInt16(left, right, result []int16) int {
 }
 
 func MulInt32(left, right, result []int32) int {
-    return MulInt32(left, right, result)
+    return mulInt32(left, right, result)
 }
 
 func MulInt64(left, right, result []int64) int {
