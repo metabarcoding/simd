@@ -1,11 +1,16 @@
 package simd
 
+//import (
+//    "fmt"
+//)
+
 type (
     element interface {int8 | int16 | int32 | int64 | float32 | float64}
     operation[E element] func(left, right, result []E) int
 )
 
-func add[E element](left, right, result []E) int {
+func goAdd[E element](left, right, result []E) int {
+//    fmt.Println("goAdd")
     n := len(result)
     if m := len(left); m < n {
         n = m
@@ -19,7 +24,8 @@ func add[E element](left, right, result []E) int {
     return n
 }
 
-func sub[E element](left, right, result []E) int {
+func goSub[E element](left, right, result []E) int {
+//    fmt.Println("goSub")
     n := len(result)
     if m := len(left); m < n {
         n = m
@@ -33,7 +39,8 @@ func sub[E element](left, right, result []E) int {
     return n
 }
 
-func mul[E element](left, right, result []E) int {
+func goMul[E element](left, right, result []E) int {
+//    fmt.Println("goMul")
     n := len(result)
     if m := len(left); m < n {
         n = m
@@ -47,7 +54,8 @@ func mul[E element](left, right, result []E) int {
     return n
 }
 
-func div[E element](left, right, result []E) int {
+func goDiv[E element](left, right, result []E) int {
+//    fmt.Println("goDiv")
     n := len(result)
     if m := len(left); m < n {
         n = m
@@ -62,30 +70,30 @@ func div[E element](left, right, result []E) int {
 }
 
 var (
-    addInt8    operation[int8]    = add[int8]
-    addInt16   operation[int16]   = add[int16]
-    addInt32   operation[int32]   = add[int32]
-    addInt64   operation[int64]   = add[int64]
-    addFloat32 operation[float32] = add[float32]
-    addFloat64 operation[float64] = add[float64]
-    subInt8    operation[int8]    = sub[int8]
-    subInt16   operation[int16]   = sub[int16]
-    subInt32   operation[int32]   = sub[int32]
-    subInt64   operation[int64]   = sub[int64]
-    subFloat32 operation[float32] = sub[float32]
-    subFloat64 operation[float64] = sub[float64]
-    mulInt8    operation[int8]    = mul[int8]
-    mulInt16   operation[int16]   = mul[int16]
-    mulInt32   operation[int32]   = mul[int32]
-    mulInt64   operation[int64]   = mul[int64]
-    mulFloat32 operation[float32] = mul[float32]
-    mulFloat64 operation[float64] = mul[float64]
-    divInt8    operation[int8]    = div[int8]
-    divInt16   operation[int16]   = div[int16]
-    divInt32   operation[int32]   = div[int32]
-    divInt64   operation[int64]   = div[int64]
-    divFloat32 operation[float32] = div[float32]
-    divFloat64 operation[float64] = div[float64]
+    addInt8    operation[int8]    = goAdd[int8]
+    addInt16   operation[int16]   = goAdd[int16]
+    addInt32   operation[int32]   = goAdd[int32]
+    addInt64   operation[int64]   = goAdd[int64]
+    addFloat32 operation[float32] = goAdd[float32]
+    addFloat64 operation[float64] = goAdd[float64]
+    subInt8    operation[int8]    = goSub[int8]
+    subInt16   operation[int16]   = goSub[int16]
+    subInt32   operation[int32]   = goSub[int32]
+    subInt64   operation[int64]   = goSub[int64]
+    subFloat32 operation[float32] = goSub[float32]
+    subFloat64 operation[float64] = goSub[float64]
+    mulInt8    operation[int8]    = goMul[int8]
+    mulInt16   operation[int16]   = goMul[int16]
+    mulInt32   operation[int32]   = goMul[int32]
+    mulInt64   operation[int64]   = goMul[int64]
+    mulFloat32 operation[float32] = goMul[float32]
+    mulFloat64 operation[float64] = goMul[float64]
+    divInt8    operation[int8]    = goDiv[int8]
+    divInt16   operation[int16]   = goDiv[int16]
+    divInt32   operation[int32]   = goDiv[int32]
+    divInt64   operation[int64]   = goDiv[int64]
+    divFloat32 operation[float32] = goDiv[float32]
+    divFloat64 operation[float64] = goDiv[float64]
 )
 
 func AddInt8(left, right, result []int8) int {
