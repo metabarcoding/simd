@@ -18,19 +18,11 @@ func sseDivFloat32(left, right, result []float32) int
 
 func sse2Supported() bool
 
-//func sse2AddInt8(left, right, result []int8) int
-
-//func sse2AddInt16(left, right, result []int16) int
-
 //func sse2AddInt32(left, right, result []int32) int
 
 //func sse2AddInt64(left, right, result []int64) int
 
 func sse2AddFloat64(left, right, result []float64) int
-
-//func sse2SubInt8(left, right, result []int8) int
-
-//func sse2SubInt16(left, right, result []int16) int
 
 //func sse2SubInt32(left, right, result []int32) int
 
