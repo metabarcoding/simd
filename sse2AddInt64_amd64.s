@@ -22,10 +22,10 @@ multipleDataLoop:
     SUBQ    AX, BX
     CMPQ    BX, $2
     JL      singleDataLoop
-    MOVO    (SI)(AX*8), X0
-    MOVO    (DX)(AX*8), X1
+    MOVOU   (SI)(AX*8), X0
+    MOVOU   (DX)(AX*8), X1
     PADDQ   X1, X0
-    MOVO    X0, (DI)(AX*8)
+    MOVOU   X0, (DI)(AX*8)
     ADDQ    $2, AX
     JMP     multipleDataLoop
 singleDataLoop:
