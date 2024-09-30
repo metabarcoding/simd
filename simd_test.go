@@ -46,7 +46,7 @@ func checkOperation[E element](t *testing.T, test, control operation[E], left, r
 }
 
 var (
-    counter uint8
+    counter int8
 )
 
 func vector[E element](length int) []E {

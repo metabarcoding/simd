@@ -18,9 +18,9 @@ func sseDivFloat32(left, right, result []float32) int
 
 func sse2Supported() bool
 
-//func sse2AddInt32(left, right, result []int32) int
+func sse2AddInt32(left, right, result []int32) int
 
-//func sse2AddInt64(left, right, result []int64) int
+func sse2AddInt64(left, right, result []int64) int
 
 func sse2AddFloat64(left, right, result []float64) int
 
@@ -48,13 +48,9 @@ func init() {
     }
     if sse2Supported() {
         fmt.Println("SSE2")
-//        addInt8    = sse2AddInt8
-//        addInt16   = sse2AddInt16
-//        addInt32   = sse2AddInt32
-//        addInt64   = sse2AddInt64
+        addInt32   = sse2AddInt32
+        addInt64   = sse2AddInt64
         addFloat64 = sse2AddFloat64
-//        subInt8    = sse2SubInt8
-//        subInt16   = sse2SubInt16
 //        subInt32   = sse2SubInt32
 //        subInt64   = sse2SubInt64
         subFloat64 = sse2SubFloat64

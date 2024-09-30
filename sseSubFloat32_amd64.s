@@ -22,21 +22,21 @@ multipleDataLoop:
     SUBQ    AX, BX
     CMPQ    BX, $4
     JL      singleDataLoop
-    MOVUPS  (SI)(AX*4), X0
-    MOVUPS  (DX)(AX*4), X1
+    MOVO    (SI)(AX*4), X0
+    MOVO    (DX)(AX*4), X1
     SUBPS   X1, X0
-    MOVUPS  X0, (DI)(AX*4)
+    MOVO    X0, (DI)(AX*4)
     ADDQ    $4, AX
     JMP     multipleDataLoop
 singleDataLoop:
     CMPQ    AX, CX
     JGE     returnLength
-    MOVSS   (SI)(AX*4), X0
-    MOVSS   (DX)(AX*4), X1
+    MOVL    (SI)(AX*4), X0
+    MOVL    (DX)(AX*4), X1
     SUBSS   X1, X0
-    MOVSS   X0, (DI)(AX*4)
+    MOVL    X0, (DI)(AX*4)
     INCQ    AX
     JMP     singleDataLoop
 returnLength:
-    MOVQ CX, int+72(FP)
+    MOVQ    CX, int+72(FP)
     RET
