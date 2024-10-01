@@ -34,12 +34,6 @@ func sse2MulFloat64(left, right, result []float64) int
 
 func sse2DivFloat64(left, right, result []float64) int
 
-func sse41Supported() bool
-
-//func sse41MulInt32(left, right, result []int32) int
-
-//func sse41MulInt64(left, right, result []int64) int
-
 func init() {
     if sseSupported() {
         fmt.Println("SSE")
@@ -58,8 +52,5 @@ func init() {
         subFloat64 = sse2SubFloat64
         mulFloat64 = sse2MulFloat64
         divFloat64 = sse2DivFloat64
-    }
-    if sse41Supported() {
-        fmt.Println("SSE4.1")
     }
 }
