@@ -4,53 +4,27 @@ package simd
 
 import (
     "fmt"
+    "github.com/pehringer/simd/internal/sse"
+    "github.com/pehringer/simd/internal/sse2"
 )
 
-func sseSupported() bool
-
-func sseAddFloat32(left, right, result []float32) int
-
-func sseSubFloat32(left, right, result []float32) int
-
-func sseMulFloat32(left, right, result []float32) int
-
-func sseDivFloat32(left, right, result []float32) int
-
-func sse2Supported() bool
-
-func sse2AddInt32(left, right, result []int32) int
-
-func sse2AddInt64(left, right, result []int64) int
-
-func sse2AddFloat64(left, right, result []float64) int
-
-func sse2SubInt32(left, right, result []int32) int
-
-func sse2SubInt64(left, right, result []int64) int
-
-func sse2SubFloat64(left, right, result []float64) int
-
-func sse2MulFloat64(left, right, result []float64) int
-
-func sse2DivFloat64(left, right, result []float64) int
-
 func init() {
-    if sseSupported() {
+    if sse.Supported() {
         fmt.Println("SSE")
-        addFloat32 = sseAddFloat32
-        subFloat32 = sseSubFloat32
-        mulFloat32 = sseMulFloat32
-        divFloat32 = sseDivFloat32
+        addFloat32 = sse.AddFloat32
+        subFloat32 = sse.SubFloat32
+        mulFloat32 = sse.MulFloat32
+        divFloat32 = sse.DivFloat32
     }
-    if sse2Supported() {
+    if sse2.Supported() {
         fmt.Println("SSE2")
-        addInt32   = sse2AddInt32
-        addInt64   = sse2AddInt64
-        addFloat64 = sse2AddFloat64
-        subInt32   = sse2SubInt32
-        subInt64   = sse2SubInt64
-        subFloat64 = sse2SubFloat64
-        mulFloat64 = sse2MulFloat64
-        divFloat64 = sse2DivFloat64
+        addInt32   = sse2.AddInt32
+        addInt64   = sse2.AddInt64
+        addFloat64 = sse2.AddFloat64
+        subInt32   = sse2.SubInt32
+        subInt64   = sse2.SubInt64
+        subFloat64 = sse2.SubFloat64
+        mulFloat64 = sse2.MulFloat64
+        divFloat64 = sse2.DivFloat64
     }
 }

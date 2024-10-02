@@ -1,7 +1,7 @@
 // +build amd64
 
-// func sse2AddInt64(left, right, result []int64) int
-TEXT ·sse2AddInt64(SB), 4, $0
+// func SubInt64(left, right, result []int64) int
+TEXT ·SubInt64(SB), 4, $0
     MOVQ    leftLen+8(FP), AX
     MOVQ    rightLen+32(FP), BX
     MOVQ    resultLen+56(FP), CX
@@ -24,7 +24,7 @@ multipleDataLoop:
     JL      singleDataLoop
     MOVOU   (SI)(AX*8), X0
     MOVOU   (DX)(AX*8), X1
-    PADDQ   X1, X0
+    PSUBQ   X1, X0
     MOVOU   X0, (DI)(AX*8)
     ADDQ    $2, AX
     JMP     multipleDataLoop
@@ -33,7 +33,7 @@ singleDataLoop:
     JGE     returnLength
     MOVQ    (SI)(AX*8), R8
     MOVQ    (DX)(AX*8), R9
-    ADDQ    R9, R8
+    SUBQ    R9, R8
     MOVQ    R8, (DI)(AX*8)
     INCQ    AX
     JMP     singleDataLoop

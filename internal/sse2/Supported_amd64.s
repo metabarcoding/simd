@@ -1,7 +1,7 @@
 // +build amd64
 
-// func sse2Supported() bool
-TEXT ·sse2Supported(SB), 4, $0
+// func Supported() bool
+TEXT ·Supported(SB), 4, $0
     MOVQ    $1, AX
     CPUID
     TESTQ   $(1<<26), DX

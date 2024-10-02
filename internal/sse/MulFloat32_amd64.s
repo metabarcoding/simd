@@ -1,7 +1,7 @@
 // +build amd64
 
-// func sseMulFloat32(left, right, result []float32) int
-TEXT ·sseMulFloat32(SB), 4, $0
+// func MulFloat32(left, right, result []float32) int
+TEXT ·MulFloat32(SB), 4, $0
     MOVQ    leftLen+8(FP), AX
     MOVQ    rightLen+32(FP), BX
     MOVQ    resultLen+56(FP), CX

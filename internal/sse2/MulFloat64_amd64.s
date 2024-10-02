@@ -1,7 +1,7 @@
 // +build amd64
 
-// func sseSubFloat32(left, right, result []float32) int
-TEXT ·sseSubFloat32(SB), 4, $0
+// func MulFloat64(left, right, result []float64) int
+TEXT ·MulFloat64(SB), 4, $0
     MOVQ    leftLen+8(FP), AX
     MOVQ    rightLen+32(FP), BX
     MOVQ    resultLen+56(FP), CX
@@ -20,21 +20,21 @@ initializeLoops:
 multipleDataLoop:
     MOVQ    CX, BX
     SUBQ    AX, BX
-    CMPQ    BX, $4
+    CMPQ    BX, $2
     JL      singleDataLoop
-    MOVUPS  (SI)(AX*4), X0
-    MOVUPS  (DX)(AX*4), X1
-    SUBPS   X1, X0
-    MOVUPS  X0, (DI)(AX*4)
-    ADDQ    $4, AX
+    MOVUPD  (SI)(AX*8), X0
+    MOVUPD  (DX)(AX*8), X1
+    MULPD   X1, X0
+    MOVUPD  X0, (DI)(AX*8)
+    ADDQ    $2, AX
     JMP     multipleDataLoop
 singleDataLoop:
     CMPQ    AX, CX
     JGE     returnLength
-    MOVSS   (SI)(AX*4), X0
-    MOVSS   (DX)(AX*4), X1
-    SUBSS   X1, X0
-    MOVSS   X0, (DI)(AX*4)
+    MOVSD   (SI)(AX*8), X0
+    MOVSD   (DX)(AX*8), X1
+    MULSD   X1, X0
+    MOVSD   X0, (DI)(AX*8)
     INCQ    AX
     JMP     singleDataLoop
 returnLength:
