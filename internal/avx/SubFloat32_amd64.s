@@ -1,7 +1,7 @@
 // +build amd64
 
-// func AddFloat64(left, right, result []float64) int
-TEXT ·AddFloat64(SB), 4, $0
+// func SubFloat32(left, right, result []float32) int
+TEXT ·SubFloat32(SB), 4, $0
     //Load slices lengths.
     MOVQ    leftLen+8(FP), AX
     MOVQ    rightLen+32(FP), BX
@@ -22,23 +22,23 @@ initializeLoops:
 multipleDataLoop:
     MOVQ    CX, BX
     SUBQ    AX, BX
-    CMPQ    BX, $2
+    CMPQ    BX, $8
     JL      singleDataLoop
-    //Add two float64 values.
-    MOVUPD  (SI)(AX*8), X0
-    MOVUPD  (DX)(AX*8), X1
-    ADDPD   X1, X0
-    MOVUPD  X0, (DI)(AX*8)
-    ADDQ    $2, AX
+    //Sub eight float32 values.
+    VMOVUPS (SI)(AX*4), Y0
+    VMOVUPS (DX)(AX*4), Y1
+    VSUBPS  Y1, Y0, Y2
+    VMOVUPS Y2, (DI)(AX*4)
+    ADDQ    $8, AX
     JMP     multipleDataLoop
 singleDataLoop:
     CMPQ    AX, CX
     JGE     returnLength
-    //Add one float64 value.
-    MOVSD   (SI)(AX*8), X0
-    MOVSD   (DX)(AX*8), X1
-    ADDSD   X1, X0
-    MOVSD   X0, (DI)(AX*8)
+    //Sub one float32 value.
+    MOVSS   (SI)(AX*4), X0
+    MOVSS   (DX)(AX*4), X1
+    SUBSS   X1, X0
+    MOVSS   X0, (DI)(AX*4)
     INCQ    AX
     JMP     singleDataLoop
 returnLength:

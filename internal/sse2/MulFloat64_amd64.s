@@ -24,6 +24,7 @@ multipleDataLoop:
     SUBQ    AX, BX
     CMPQ    BX, $2
     JL      singleDataLoop
+    //Mul two float64 values.
     MOVUPD  (SI)(AX*8), X0
     MOVUPD  (DX)(AX*8), X1
     MULPD   X1, X0
@@ -33,6 +34,7 @@ multipleDataLoop:
 singleDataLoop:
     CMPQ    AX, CX
     JGE     returnLength
+    //Mul one float64 value.
     MOVSD   (SI)(AX*8), X0
     MOVSD   (DX)(AX*8), X1
     MULSD   X1, X0

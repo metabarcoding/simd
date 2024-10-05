@@ -31,6 +31,10 @@ func init() {
     }
     if avx.Supported() {
         fmt.Println("AVX")
+        addFloat32 = avx.AddFloat32
+        subFloat32 = avx.SubFloat32
+        mulFloat32 = avx.MulFloat32
+        divFloat32 = avx.DivFloat32
     }
     if avx2.Supported() {
         fmt.Println("AVX2")

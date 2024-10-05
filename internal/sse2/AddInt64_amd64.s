@@ -24,6 +24,7 @@ multipleDataLoop:
     SUBQ    AX, BX
     CMPQ    BX, $2
     JL      singleDataLoop
+    //Add two int64 values.
     MOVOU   (SI)(AX*8), X0
     MOVOU   (DX)(AX*8), X1
     PADDQ   X1, X0
@@ -33,6 +34,7 @@ multipleDataLoop:
 singleDataLoop:
     CMPQ    AX, CX
     JGE     returnLength
+    //Add one int64 value.
     MOVQ    (SI)(AX*8), R8
     MOVQ    (DX)(AX*8), R9
     ADDQ    R9, R8
