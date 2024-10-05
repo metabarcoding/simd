@@ -7,6 +7,7 @@ import (
     "github.com/pehringer/simd/internal/sse"
     "github.com/pehringer/simd/internal/sse2"
     "github.com/pehringer/simd/internal/avx"
+    "github.com/pehringer/simd/internal/avx2"
 )
 
 func init() {
@@ -30,5 +31,8 @@ func init() {
     }
     if avx.Supported() {
         fmt.Println("AVX")
+    }
+    if avx2.Supported() {
+        fmt.Println("AVX2")
     }
 }

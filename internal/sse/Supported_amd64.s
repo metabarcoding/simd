@@ -2,6 +2,7 @@
 
 // func Supported() bool
 TEXT ·Supported(SB), 4, $0
+    //Check SSE supported.
     MOVQ    $1, AX
     CPUID
     TESTQ   $(1<<25), DX
