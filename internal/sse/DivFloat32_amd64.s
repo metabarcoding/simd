@@ -13,7 +13,7 @@ compareLengths:
     JGE     initializeLoops
     MOVQ    BX, CX
 initializeLoops:
-    XORQ    AX, AX
+    MOVQ    $0, AX
     MOVQ    leftData+0(FP), SI
     MOVQ    rightData+24(FP), DX
     MOVQ    resultData+48(FP), DI

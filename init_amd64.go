@@ -6,6 +6,7 @@ import (
     "fmt"
     "github.com/pehringer/simd/internal/sse"
     "github.com/pehringer/simd/internal/sse2"
+    "github.com/pehringer/simd/internal/avx"
 )
 
 func init() {
@@ -26,5 +27,8 @@ func init() {
         subFloat64 = sse2.SubFloat64
         mulFloat64 = sse2.MulFloat64
         divFloat64 = sse2.DivFloat64
+    }
+    if avx.Supported() {
+        fmt.Println("AVX")
     }
 }
