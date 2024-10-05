@@ -2,6 +2,7 @@
 
 // func AddInt64(left, right, result []int64) int
 TEXT ·AddInt64(SB), 4, $0
+    //Load slices lengths.
     MOVQ    leftLen+8(FP), AX
     MOVQ    rightLen+32(FP), BX
     MOVQ    resultLen+56(FP), CX
@@ -14,6 +15,7 @@ compareLengths:
     MOVQ    BX, CX
 initializeLoops:
     MOVQ    $0, AX
+    //Load slices data pointers.
     MOVQ    leftData+0(FP), SI
     MOVQ    rightData+24(FP), DX
     MOVQ    resultData+48(FP), DI
