@@ -42,5 +42,9 @@ func init() {
     }
     if avx2.Supported() {
         fmt.Println("AVX2")
+        addInt32   = avx2.AddInt32
+        addInt64   = avx2.AddInt64
+        subInt32   = avx2.SubInt32
+        subInt64   = sse2.SubInt64
     }
 }

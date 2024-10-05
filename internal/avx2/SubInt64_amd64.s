@@ -1,0 +1,46 @@
+// +build amd64
+
+// func SubInt64(left, right, result []int64) int
+TEXT ·SubInt64(SB), 4, $0
+    //Load slices lengths.
+    MOVQ    leftLen+8(FP), AX
+    MOVQ    rightLen+32(FP), BX
+    MOVQ    resultLen+56(FP), CX
+    CMPQ    AX, CX
+    JGE     compareLengths
+    MOVQ    AX, CX
+compareLengths:
+    CMPQ    BX, CX
+    JGE     initializeLoops
+    MOVQ    BX, CX
+initializeLoops:
+    MOVQ    $0, AX
+    //Load slices data pointers.
+    MOVQ    leftData+0(FP), SI
+    MOVQ    rightData+24(FP), DX
+    MOVQ    resultData+48(FP), DI
+multipleDataLoop:
+    MOVQ    CX, BX
+    SUBQ    AX, BX
+    CMPQ    BX, $4
+    JL      singleDataLoop
+    //Sub four int64 values.
+    VMOVDQU (SI)(AX*8), Y0
+    VMOVDQU (DX)(AX*8), Y1
+    VPSUBQ  Y1, Y0, Y2
+    VMOVDQU Y2, (DI)(AX*8)
+    ADDQ    $4, AX
+    JMP     multipleDataLoop
+singleDataLoop:
+    CMPQ    AX, CX
+    JGE     returnLength
+    //Sub one int64 value.
+    MOVQ    (SI)(AX*8), R8
+    MOVQ    (DX)(AX*8), R9
+    SUBQ    R9, R8
+    MOVQ    R8, (DI)(AX*8)
+    INCQ    AX
+    JMP     singleDataLoop
+returnLength:
+    MOVQ    CX, int+72(FP)
+    RET
