@@ -6,6 +6,7 @@ import (
     "fmt"
     "github.com/pehringer/simd/internal/sse"
     "github.com/pehringer/simd/internal/sse2"
+    "github.com/pehringer/simd/internal/sse41"
     "github.com/pehringer/simd/internal/avx"
     "github.com/pehringer/simd/internal/avx2"
 )
@@ -29,6 +30,10 @@ func init() {
         mulFloat64 = sse2.MulFloat64
         divFloat64 = sse2.DivFloat64
     }
+    if sse41.Supported() {
+        fmt.Println("SSE4.1")
+        mulInt32   = sse41.MulInt32
+    }
     if avx.Supported() {
         fmt.Println("AVX")
         addFloat32 = avx.AddFloat32
@@ -46,5 +51,6 @@ func init() {
         addInt64   = avx2.AddInt64
         subInt32   = avx2.SubInt32
         subInt64   = sse2.SubInt64
+        mulInt32   = avx2.MulInt32
     }
 }

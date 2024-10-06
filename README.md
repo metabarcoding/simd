@@ -1,22 +1,22 @@
 # Simd Hardware Support
-|          |SSE (128-Bit)|SSE2 (128-Bit)|AVX (256-Bit)|AVX2 (256-Bit)|
-|----------|-------------|--------------|-------------|--------------|
-|AddInt32  |             |X             |⟵           |X             |
-|AddInt64  |             |X             |⟵           |X             |
-|AddFloat32|X            |⟵            |X            |⟵            |
-|AddFloat64|             |X             |X            |⟵            |
-|SubInt32  |             |X             |⟵           |X             |
-|SubInt64  |             |X             |⟵           |X             |
-|SubFloat32|X            |⟵            |X            |⟵            |
-|SubFloat64|             |X             |X            |⟵            |
-|MulInt32  |             |              |             |              |
-|MulInt64  |             |              |             |              |
-|MulFloat32|X            |⟵            |X            |⟵            |
-|MulFloat64|             |X             |X            |⟵            |
-|DivInt32  |             |              |             |              |
-|DivInt64  |             |              |             |              |
-|DivFloat32|X            |⟵            |X            |⟵            |
-|DivFloat64|             |X             |X            |⟵            |
+|          |SSE|SSE2|SSE4.1|AVX|AVX2|
+|----------|---|----|------|---|----|
+|AddInt32  |   |X   |⟵     |⟵  |X   |
+|AddInt64  |   |X   |⟵     |⟵  |X   |
+|AddFloat32|X  |⟵   |⟵     |X  |⟵   |
+|AddFloat64|   |X   |⟵     |X  |⟵   |
+|SubInt32  |   |X   |⟵     |⟵  |X   |
+|SubInt64  |   |X   |⟵     |⟵  |X   |
+|SubFloat32|X  |⟵   |⟵     |X  |⟵   |
+|SubFloat64|   |X   |⟵     |X  |⟵   |
+|MulInt32  |   |    |X     |⟵  |X   |
+|MulInt64  |   |    |      |   |    |
+|MulFloat32|X  |⟵   |⟵     |X  |⟵   |
+|MulFloat64|   |X   |⟵     |X  |⟵   |
+|DivInt32  |   |    |      |   |    |
+|DivInt64  |   |    |      |   |    |
+|DivFloat32|X  |⟵   |⟵     |X  |⟵   |
+|DivFloat64|   |X   |⟵     |X  |⟵   |
 # Library Functions
 ---
 ### ```func AddInt32(left, right, result []int32) int```
