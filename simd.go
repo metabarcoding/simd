@@ -1,4 +1,4 @@
-// simd (Single Instruction, Multiple Data) support for arithmetic operations.
+// Simd support for arithmetic operations. Allowing for parallel element-wise computations.
 package simd
 
 type (
