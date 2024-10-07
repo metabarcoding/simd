@@ -1,8 +1,24 @@
+// Provides SIMD (Single Instruction, Multiple Data) support for arithmetic operations.
+// # AMD64 Simd Support
+// |          |SSE|SSE2|SSE4.1|AVX|AVX2|
+// |----------|---|----|------|---|----|
+// |AddInt32  |   |X   |⟵     |⟵  |X   |
+// |AddInt64  |   |X   |⟵     |⟵  |X   |
+// |AddFloat32|X  |⟵   |⟵     |X  |⟵   |
+// |AddFloat64|   |X   |⟵     |X  |⟵   |
+// |SubInt32  |   |X   |⟵     |⟵  |X   |
+// |SubInt64  |   |X   |⟵     |⟵  |X   |
+// |SubFloat32|X  |⟵   |⟵     |X  |⟵   |
+// |SubFloat64|   |X   |⟵     |X  |⟵   |
+// |MulInt32  |   |    |X     |⟵  |X   |
+// |MulInt64  |   |    |      |   |    |
+// |MulFloat32|X  |⟵   |⟵     |X  |⟵   |
+// |MulFloat64|   |X   |⟵     |X  |⟵   |
+// |DivInt32  |   |    |      |   |    |
+// |DivInt64  |   |    |      |   |    |
+// |DivFloat32|X  |⟵   |⟵     |X  |⟵   |
+// |DivFloat64|   |X   |⟵     |X  |⟵   |
 package simd
-
-//import (
-//    "fmt"
-//)
 
 type (
     element interface {int32 | int64 | float32 | float64}
@@ -10,7 +26,6 @@ type (
 )
 
 func goAdd[E element](left, right, result []E) int {
-//    fmt.Println("goAdd")
     n := len(result)
     if m := len(left); m < n {
         n = m
@@ -18,14 +33,20 @@ func goAdd[E element](left, right, result []E) int {
     if m := len(right); m < n {
         n = m
     }
-    for i := 0; i < n; i++ {
+    i := 0
+    for ; n-i >= 4; i += 4 {
+        result[i] = left[i] + right[i]
+        result[i+1] = left[i+1] + right[i+1]
+        result[i+2] = left[i+2] + right[i+2]
+        result[i+3] = left[i+3] + right[i+3]
+    }
+    for ; i < n; i++ {
         result[i] = left[i] + right[i]
     }
     return n
 }
 
 func goSub[E element](left, right, result []E) int {
-//    fmt.Println("goSub")
     n := len(result)
     if m := len(left); m < n {
         n = m
@@ -33,14 +54,20 @@ func goSub[E element](left, right, result []E) int {
     if m := len(right); m < n {
         n = m
     }
-    for i := 0; i < n; i++ {
+    i := 0
+    for ; n-i >= 4; i += 4 {
+        result[i] = left[i] - right[i]
+        result[i+1] = left[i+1] - right[i+1]
+        result[i+2] = left[i+2] - right[i+2]
+        result[i+3] = left[i+3] - right[i+3]
+    }
+    for ; i < n; i++ {
         result[i] = left[i] - right[i]
     }
     return n
 }
 
 func goMul[E element](left, right, result []E) int {
-//    fmt.Println("goMul")
     n := len(result)
     if m := len(left); m < n {
         n = m
@@ -48,14 +75,20 @@ func goMul[E element](left, right, result []E) int {
     if m := len(right); m < n {
         n = m
     }
-    for i := 0; i < n; i++ {
+    i := 0
+    for ; n-i >= 4; i += 4 {
+        result[i] = left[i] * right[i]
+        result[i+1] = left[i+1] * right[i+1]
+        result[i+2] = left[i+2] * right[i+2]
+        result[i+3] = left[i+3] * right[i+3]
+    }
+    for ; i < n; i++ {
         result[i] = left[i] * right[i]
     }
     return n
 }
 
 func goDiv[E element](left, right, result []E) int {
-//    fmt.Println("goDiv")
     n := len(result)
     if m := len(left); m < n {
         n = m
@@ -63,7 +96,14 @@ func goDiv[E element](left, right, result []E) int {
     if m := len(right); m < n {
         n = m
     }
-    for i := 0; i < n; i++ {
+    i := 0
+    for ; n-i >= 4; i += 4 {
+        result[i] = left[i] / right[i]
+        result[i+1] = left[i+1] / right[i+1]
+        result[i+2] = left[i+2] / right[i+2]
+        result[i+3] = left[i+3] / right[i+3]
+    }
+    for ; i < n; i++ {
         result[i] = left[i] / right[i]
     }
     return n
@@ -88,66 +128,114 @@ var (
     divFloat64 operation[float64] = goDiv[float64]
 )
 
+// AddInt32 performs element-wise addition on left and right, storing the sums in result.
+// The operation is performed up to the shortest length of left, right, and result.
+// Returns the number of operations performed.
 func AddInt32(left, right, result []int32) int {
     return addInt32(left, right, result)
 }
 
+// AddInt64 performs element-wise addition on left and right, storing the sums in result.
+// The operation is performed up to the shortest length of left, right, and result.
+// Returns the number of operations performed.
 func AddInt64(left, right, result []int64) int {
     return addInt64(left, right, result)
 }
 
+// AddFloat32 performs element-wise addition on left and right, storing the sums in result.
+// The operation is performed up to the shortest length of left, right, and result.
+// Returns the number of operations performed.
 func AddFloat32(left, right, result []float32) int {
     return addFloat32(left, right, result)
 }
 
+// AddFloat64 performs element-wise addition on left and right, storing the sums in result.
+// The operation is performed up to the shortest length of left, right, and result.
+// Returns the number of operations performed.
 func AddFloat64(left, right, result []float64) int {
     return addFloat64(left, right, result)
 }
 
+// SubInt32 performs element-wise subtraction on left and right, storing the differences in result.
+// The operation is performed up to the shortest length of left, right, and result.
+// Returns the number of operations performed.
 func SubInt32(left, right, result []int32) int {
     return subInt32(left, right, result)
 }
 
+// SubInt64 performs element-wise subtraction on left and right, storing the differences in result.
+// The operation is performed up to the shortest length of left, right, and result.
+// Returns the number of operations performed.
 func SubInt64(left, right, result []int64) int {
     return subInt64(left, right, result)
 }
 
+// SubFloat32 performs element-wise subtraction on left and right, storing the differences in result.
+// The operation is performed up to the shortest length of left, right, and result.
+// Returns the number of operations performed.
 func SubFloat32(left, right, result []float32) int {
     return subFloat32(left, right, result)
 }
 
+// SubFloat64 performs element-wise subtraction on left and right, storing the differences in result.
+// The operation is performed up to the shortest length of left, right, and result.
+// Returns the number of operations performed.
 func SubFloat64(left, right, result []float64) int {
     return subFloat64(left, right, result)
 }
 
+// MulInt32 performs element-wise multiplication on left and right, storing the products in result.
+// The operation is performed up to the shortest length of left, right, and result.
+// Returns the number of operations performed.
 func MulInt32(left, right, result []int32) int {
     return mulInt32(left, right, result)
 }
 
+// MulInt64 performs element-wise multiplication on left and right, storing the products in result.
+// The operation is performed up to the shortest length of left, right, and result.
+// Returns the number of operations performed.
 func MulInt64(left, right, result []int64) int {
     return mulInt64(left, right, result)
 }
 
+// MulFloat32 performs element-wise multiplication on left and right, storing the products in result.
+// The operation is performed up to the shortest length of left, right, and result.
+// Returns the number of operations performed.
 func MulFloat32(left, right, result []float32) int {
     return mulFloat32(left, right, result)
 }
 
+// MulFloat64 performs element-wise multiplication on left and right, storing the products in result.
+// The operation is performed up to the shortest length of left, right, and result.
+// Returns the number of operations performed.
 func MulFloat64(left, right, result []float64) int {
     return mulFloat64(left, right, result)
 }
 
+// DivInt32 performs element-wise division on left and right, storing the quotients in result.
+// The operation is performed up to the shortest length of left, right, and result.
+// Returns the number of operations performed.
 func DivInt32(left, right, result []int32) int {
     return divInt32(left, right, result)
 }
 
+// DivInt64 performs element-wise division on left and right, storing the quotients in result.
+// The operation is performed up to the shortest length of left, right, and result.
+// Returns the number of operations performed.
 func DivInt64(left, right, result []int64) int {
     return divInt64(left, right, result)
 }
 
+// DivFloat32 performs element-wise division on left and right, storing the quotients in result.
+// The operation is performed up to the shortest length of left, right, and result.
+// Returns the number of operations performed.
 func DivFloat32(left, right, result []float32) int {
     return divFloat32(left, right, result)
 }
 
+// DivFloat64 performs element-wise division on left and right, storing the quotients in result.
+// The operation is performed up to the shortest length of left, right, and result.
+// Returns the number of operations performed.
 func DivFloat64(left, right, result []float64) int {
     return divFloat64(left, right, result)
 }
