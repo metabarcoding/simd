@@ -1,6 +1,8 @@
 # SIMD (Single Instruction, Multiple Data)
-Function documentation available locally in ```simd.go```.
-Function documentation available online at [pkg.go.dev/github.com/pehringer/simd](https://pkg.go.dev/github.com/pehringer/simd).
+Aimd support for arithmetic operations.  
+### Function Documentation
+Available locally in ```simd.go```.  
+Available online at [pkg.go.dev/github.com/pehringer/simd](https://pkg.go.dev/github.com/pehringer/simd).  
 ### AMD64 Simd Support
 |          |SSE|SSE2|SSE4.1|AVX|AVX2|
 |----------|---|----|------|---|----|
