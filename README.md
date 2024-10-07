@@ -1,5 +1,5 @@
 # SIMD (Single Instruction, Multiple Data)
-Aimd support for arithmetic operations.  
+Simd support for arithmetic operations.  
 ### Function Documentation
 Available locally in ```simd.go```.  
 Available online at [pkg.go.dev/github.com/pehringer/simd](https://pkg.go.dev/github.com/pehringer/simd).  
