@@ -95,6 +95,10 @@ var (
     addFloat64 operation[float64] = goAdd[float64]
     addInt32   operation[int32]   = goAdd[int32]
     addInt64   operation[int64]   = goAdd[int64]
+    andFloat32 operation[float32]
+    andFloat64 operation[float64]
+    andInt32   operation[int32]
+    andInt64   operation[int64]
     divFloat32 operation[float32] = goDiv[float32]
     divFloat64 operation[float64] = goDiv[float64]
     divInt32   operation[int32]   = goDiv[int32]
@@ -103,10 +107,18 @@ var (
     mulFloat64 operation[float64] = goMul[float64]
     mulInt32   operation[int32]   = goMul[int32]
     mulInt64   operation[int64]   = goMul[int64]
+    orFloat32 operation[float32]
+    orFloat64 operation[float64]
+    orInt32   operation[int32]
+    orInt64   operation[int64]
     subFloat32 operation[float32] = goSub[float32]
     subFloat64 operation[float64] = goSub[float64]
     subInt32   operation[int32]   = goSub[int32]
     subInt64   operation[int64]   = goSub[int64]
+    xorFloat32 operation[float32]
+    xorFloat64 operation[float64]
+    xorInt32   operation[int32]
+    xorInt64   operation[int64]
 )
 
 // AddFloat32 performs element-wise addition on left and right, storing the sums in result.
@@ -135,6 +147,22 @@ func AddInt32(left, right, result []int32) int {
 // Returns the number of operations performed.
 func AddInt64(left, right, result []int64) int {
     return addInt64(left, right, result)
+}
+
+func AndFloat32(left, right, result []float32) int {
+    return 0
+}
+
+func AndFloat64(left, right, result []float64) int {
+    return 0
+}
+
+func AndInt32(left, right, result []int32) int {
+    return 0
+}
+
+func AndInt64(left, right, result []int64) int {
+    return 0
 }
 
 // DivFloat32 performs element-wise division on left and right, storing the quotients in result.
@@ -193,6 +221,22 @@ func MulInt64(left, right, result []int64) int {
     return mulInt64(left, right, result)
 }
 
+func OrFloat32(left, right, result []float32) int {
+    return 0
+}
+
+func OrFloat64(left, right, result []float64) int {
+    return 0
+}
+
+func OrInt32(left, right, result []int32) int {
+    return 0
+}
+
+func OrInt64(left, right, result []int64) int {
+    return 0
+}
+
 // SubFloat32 performs element-wise subtraction on left and right, storing the differences in result.
 // The operation is performed up to the shortest length of left, right, and result.
 // Returns the number of operations performed.
@@ -219,4 +263,20 @@ func SubInt32(left, right, result []int32) int {
 // Returns the number of operations performed.
 func SubInt64(left, right, result []int64) int {
     return subInt64(left, right, result)
+}
+
+func XorFloat32(left, right, result []float32) int {
+    return 0
+}
+
+func XorFloat64(left, right, result []float64) int {
+    return 0
+}
+
+func XorInt32(left, right, result []int32) int {
+    return 0
+}
+
+func XorInt64(left, right, result []int64) int {
+    return 0
 }
