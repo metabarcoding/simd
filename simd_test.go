@@ -221,6 +221,46 @@ func TestSubFloat64PowerTwo(t *testing.T) {
     checkOperation(t, SubFloat64, goSub, vector[float64](8192), vector[float64](8192), vector[float64](8192))
 }
 
+func TestMulInt32Zero(t *testing.T) {
+    checkOperation(t, MulInt32, goMul, []int32{}, []int32{}, []int32{})
+}
+
+func TestMulInt32Prime(t *testing.T) {
+    checkOperation(t, MulInt32, goMul, vector[int32](11), vector[int32](13), vector[int32](17))
+    checkOperation(t, MulInt32, goMul, vector[int32](29), vector[int32](19), vector[int32](23))
+    checkOperation(t, MulInt32, goMul, vector[int32](37), vector[int32](41), vector[int32](31))
+    checkOperation(t, MulInt32, goMul, vector[int32](43), vector[int32](47), vector[int32](53))
+    checkOperation(t, MulInt32, goMul, vector[int32](67), vector[int32](59), vector[int32](61))
+    checkOperation(t, MulInt32, goMul, vector[int32](73), vector[int32](79), vector[int32](71))
+}
+
+func TestMulInt32PowerTwo(t *testing.T) {
+    checkOperation(t, MulInt32, goMul, vector[int32](1024), vector[int32](1024), vector[int32](1024))
+    checkOperation(t, MulInt32, goMul, vector[int32](2048), vector[int32](2048), vector[int32](2048))
+    checkOperation(t, MulInt32, goMul, vector[int32](4096), vector[int32](4096), vector[int32](4096))
+    checkOperation(t, MulInt32, goMul, vector[int32](8192), vector[int32](8192), vector[int32](8192))
+}
+
+func TestMulInt64Zero(t *testing.T) {
+    checkOperation(t, MulInt64, goMul, []int64{}, []int64{}, []int64{})
+}
+
+func TestMulInt64Prime(t *testing.T) {
+    checkOperation(t, MulInt64, goMul, vector[int64](11), vector[int64](13), vector[int64](17))
+    checkOperation(t, MulInt64, goMul, vector[int64](29), vector[int64](19), vector[int64](23))
+    checkOperation(t, MulInt64, goMul, vector[int64](37), vector[int64](41), vector[int64](31))
+    checkOperation(t, MulInt64, goMul, vector[int64](43), vector[int64](47), vector[int64](53))
+    checkOperation(t, MulInt64, goMul, vector[int64](67), vector[int64](59), vector[int64](61))
+    checkOperation(t, MulInt64, goMul, vector[int64](73), vector[int64](79), vector[int64](71))
+}
+
+func TestMulInt64PowerTwo(t *testing.T) {
+    checkOperation(t, MulInt64, goMul, vector[int64](1024), vector[int64](1024), vector[int64](1024))
+    checkOperation(t, MulInt64, goMul, vector[int64](2048), vector[int64](2048), vector[int64](2048))
+    checkOperation(t, MulInt64, goMul, vector[int64](4096), vector[int64](4096), vector[int64](4096))
+    checkOperation(t, MulInt64, goMul, vector[int64](8192), vector[int64](8192), vector[int64](8192))
+}
+
 func TestMulFloat32Zero(t *testing.T) {
     checkOperation(t, MulFloat32, goMul, []float32{}, []float32{}, []float32{})
 }
@@ -259,6 +299,46 @@ func TestMulFloat64PowerTwo(t *testing.T) {
     checkOperation(t, MulFloat64, goMul, vector[float64](2048), vector[float64](2048), vector[float64](2048))
     checkOperation(t, MulFloat64, goMul, vector[float64](4096), vector[float64](4096), vector[float64](4096))
     checkOperation(t, MulFloat64, goMul, vector[float64](8192), vector[float64](8192), vector[float64](8192))
+}
+
+func TestDivInt32Zero(t *testing.T) {
+    checkOperation(t, DivInt32, goDiv, []int32{}, []int32{}, []int32{})
+}
+
+func TestDivInt32Prime(t *testing.T) {
+    checkOperation(t, DivInt32, goDiv, vector[int32](11), vector[int32](13), vector[int32](17))
+    checkOperation(t, DivInt32, goDiv, vector[int32](29), vector[int32](19), vector[int32](23))
+    checkOperation(t, DivInt32, goDiv, vector[int32](37), vector[int32](41), vector[int32](31))
+    checkOperation(t, DivInt32, goDiv, vector[int32](43), vector[int32](47), vector[int32](53))
+    checkOperation(t, DivInt32, goDiv, vector[int32](67), vector[int32](59), vector[int32](61))
+    checkOperation(t, DivInt32, goDiv, vector[int32](73), vector[int32](79), vector[int32](71))
+}
+
+func TestDivInt32PowerTwo(t *testing.T) {
+    checkOperation(t, DivInt32, goDiv, vector[int32](1024), vector[int32](1024), vector[int32](1024))
+    checkOperation(t, DivInt32, goDiv, vector[int32](2048), vector[int32](2048), vector[int32](2048))
+    checkOperation(t, DivInt32, goDiv, vector[int32](4096), vector[int32](4096), vector[int32](4096))
+    checkOperation(t, DivInt32, goDiv, vector[int32](8192), vector[int32](8192), vector[int32](8192))
+}
+
+func TestDivInt64Zero(t *testing.T) {
+    checkOperation(t, DivInt64, goDiv, []int64{}, []int64{}, []int64{})
+}
+
+func TestDivInt64Prime(t *testing.T) {
+    checkOperation(t, DivInt64, goDiv, vector[int64](11), vector[int64](13), vector[int64](17))
+    checkOperation(t, DivInt64, goDiv, vector[int64](29), vector[int64](19), vector[int64](23))
+    checkOperation(t, DivInt64, goDiv, vector[int64](37), vector[int64](41), vector[int64](31))
+    checkOperation(t, DivInt64, goDiv, vector[int64](43), vector[int64](47), vector[int64](53))
+    checkOperation(t, DivInt64, goDiv, vector[int64](67), vector[int64](59), vector[int64](61))
+    checkOperation(t, DivInt64, goDiv, vector[int64](73), vector[int64](79), vector[int64](71))
+}
+
+func TestDivInt64PowerTwo(t *testing.T) {
+    checkOperation(t, DivInt64, goDiv, vector[int64](1024), vector[int64](1024), vector[int64](1024))
+    checkOperation(t, DivInt64, goDiv, vector[int64](2048), vector[int64](2048), vector[int64](2048))
+    checkOperation(t, DivInt64, goDiv, vector[int64](4096), vector[int64](4096), vector[int64](4096))
+    checkOperation(t, DivInt64, goDiv, vector[int64](8192), vector[int64](8192), vector[int64](8192))
 }
 
 func TestDivFloat32Zero(t *testing.T) {

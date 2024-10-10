@@ -97,8 +97,12 @@ var (
     addInt64   operation[int64]   = goAdd[int64]
     divFloat32 operation[float32] = goDiv[float32]
     divFloat64 operation[float64] = goDiv[float64]
+    divInt32   operation[int32]   = goDiv[int32]
+    divInt64   operation[int64]   = goDiv[int64]
     mulFloat32 operation[float32] = goMul[float32]
     mulFloat64 operation[float64] = goMul[float64]
+    mulInt32   operation[int32]   = goMul[int32]
+    mulInt64   operation[int64]   = goMul[int64]
     subFloat32 operation[float32] = goSub[float32]
     subFloat64 operation[float64] = goSub[float64]
     subInt32   operation[int32]   = goSub[int32]
@@ -147,6 +151,19 @@ func DivFloat64(left, right, result []float64) int {
     return divFloat64(left, right, result)
 }
 
+// DivInt32 performs element-wise division on left and right, storing the quotients in result.
+// The operation is performed up to the shortest length of left, right, and result.
+// Returns the number of operations performed.
+func DivInt32(left, right, result []int32) int {
+    return divInt32(left, right, result)
+}
+// DivInt64 performs element-wise division on left and right, storing the quotients in result.
+// The operation is performed up to the shortest length of left, right, and result.
+// Returns the number of operations performed.
+func DivInt64(left, right, result []int64) int {
+    return divInt64(left, right, result)
+}
+
 // MulFloat32 performs element-wise multiplication on left and right, storing the products in result.
 // The operation is performed up to the shortest length of left, right, and result.
 // Returns the number of operations performed.
@@ -159,6 +176,20 @@ func MulFloat32(left, right, result []float32) int {
 // Returns the number of operations performed.
 func MulFloat64(left, right, result []float64) int {
     return mulFloat64(left, right, result)
+}
+
+// MulInt32 performs element-wise multiplication on left and right, storing the products in result.
+// The operation is performed up to the shortest length of left, right, and result.
+// Returns the number of operations performed.
+func MulInt32(left, right, result []int32) int {
+    return mulInt32(left, right, result)
+}
+
+// MulInt64 performs element-wise multiplication on left and right, storing the products in result.
+// The operation is performed up to the shortest length of left, right, and result.
+// Returns the number of operations performed.
+func MulInt64(left, right, result []int64) int {
+    return mulInt64(left, right, result)
 }
 
 // SubFloat32 performs element-wise subtraction on left and right, storing the differences in result.
