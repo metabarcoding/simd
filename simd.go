@@ -1,112 +1,27 @@
 // Simd support for arithmetic operations. Allowing for parallel element-wise computations.
 package simd
 
-type (
-    element interface {int32 | int64 | float32 | float64}
-    operation[E element] func(left, right, result []E) int
+import (
+    "github.com/pehringer/simd/internal/fallback"
 )
 
-func goAdd[E element](left, right, result []E) int {
-    n := len(result)
-    if m := len(left); m < n {
-        n = m
-    }
-    if m := len(right); m < n {
-        n = m
-    }
-    i := 0
-    for ; n-i >= 4; i += 4 {
-        result[i] = left[i] + right[i]
-        result[i+1] = left[i+1] + right[i+1]
-        result[i+2] = left[i+2] + right[i+2]
-        result[i+3] = left[i+3] + right[i+3]
-    }
-    for ; i < n; i++ {
-        result[i] = left[i] + right[i]
-    }
-    return n
-}
-
-func goDiv[E element](left, right, result []E) int {
-    n := len(result)
-    if m := len(left); m < n {
-        n = m
-    }
-    if m := len(right); m < n {
-        n = m
-    }
-    i := 0
-    for ; n-i >= 4; i += 4 {
-        result[i] = left[i] / right[i]
-        result[i+1] = left[i+1] / right[i+1]
-        result[i+2] = left[i+2] / right[i+2]
-        result[i+3] = left[i+3] / right[i+3]
-    }
-    for ; i < n; i++ {
-        result[i] = left[i] / right[i]
-    }
-    return n
-}
-
-func goMul[E element](left, right, result []E) int {
-    n := len(result)
-    if m := len(left); m < n {
-        n = m
-    }
-    if m := len(right); m < n {
-        n = m
-    }
-    i := 0
-    for ; n-i >= 4; i += 4 {
-        result[i] = left[i] * right[i]
-        result[i+1] = left[i+1] * right[i+1]
-        result[i+2] = left[i+2] * right[i+2]
-        result[i+3] = left[i+3] * right[i+3]
-    }
-    for ; i < n; i++ {
-        result[i] = left[i] * right[i]
-    }
-    return n
-}
-
-func goSub[E element](left, right, result []E) int {
-    n := len(result)
-    if m := len(left); m < n {
-        n = m
-    }
-    if m := len(right); m < n {
-        n = m
-    }
-    i := 0
-    for ; n-i >= 4; i += 4 {
-        result[i] = left[i] - right[i]
-        result[i+1] = left[i+1] - right[i+1]
-        result[i+2] = left[i+2] - right[i+2]
-        result[i+3] = left[i+3] - right[i+3]
-    }
-    for ; i < n; i++ {
-        result[i] = left[i] - right[i]
-    }
-    return n
-}
-
 var (
-    addFloat32 operation[float32] = goAdd[float32]
-    addFloat64 operation[float64] = goAdd[float64]
-    addInt32   operation[int32]   = goAdd[int32]
-    addInt64   operation[int64]   = goAdd[int64]
-    divFloat32 operation[float32] = goDiv[float32]
-    divFloat64 operation[float64] = goDiv[float64]
-    divInt32   operation[int32]   = goDiv[int32]
-    divInt64   operation[int64]   = goDiv[int64]
-    mulFloat32 operation[float32] = goMul[float32]
-    mulFloat64 operation[float64] = goMul[float64]
-    mulInt32   operation[int32]   = goMul[int32]
-    mulInt64   operation[int64]   = goMul[int64]
-    subFloat32 operation[float32] = goSub[float32]
-    subFloat64 operation[float64] = goSub[float64]
-    subInt32   operation[int32]   = goSub[int32]
-    subInt64   operation[int64]   = goSub[int64]
+    addFloat32 func(left, right, result []float32) int = fallback.Add[float32]
+    addFloat64 func(left, right, result []float64) int = fallback.Add[float64]
+    addInt32   func(left, right, result []int32) int   = fallback.Add[int32]
+    addInt64   func(left, right, result []int64) int   = fallback.Add[int64]
+    divFloat32 func(left, right, result []float32) int = fallback.Div[float32]
+    divFloat64 func(left, right, result []float64) int = fallback.Div[float64]
+    divInt32   func(left, right, result []int32) int   = fallback.Div[int32]
+    divInt64   func(left, right, result []int64) int   = fallback.Div[int64]
+    mulFloat32 func(left, right, result []float32) int = fallback.Mul[float32]
+    mulFloat64 func(left, right, result []float64) int = fallback.Mul[float64]
+    mulInt32   func(left, right, result []int32) int   = fallback.Mul[int32]
+    mulInt64   func(left, right, result []int64) int   = fallback.Mul[int64]
+    subFloat32 func(left, right, result []float32) int = fallback.Sub[float32]
+    subFloat64 func(left, right, result []float64) int = fallback.Sub[float64]
+    subInt32   func(left, right, result []int32) int   = fallback.Sub[int32]
+    subInt64   func(left, right, result []int64) int   = fallback.Sub[int64]
 )
 
 // AddFloat32 performs element-wise addition on left and right, storing the sums in result.
