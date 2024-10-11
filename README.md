@@ -22,3 +22,6 @@ Simd support for arithmetic operations. Allowing for parallel element-wise compu
 |SubFloat64|   |X   |      |X  |    |
 |SubInt32  |   |X   |      |   |X   |
 |SubInt64  |   |X   |      |   |X   |
+## AMD64 Simd Performance:
+(My machine has a memory bottleneck, hense the poor AVX performance...)
+![AddFloat32](images/float32_Addition.png)
