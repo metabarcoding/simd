@@ -6,19 +6,17 @@ TEXT ·SubFloat32(SB), 4, $0
     MOVQ    leftLen+8(FP), AX
     MOVQ    rightLen+32(FP), BX
     MOVQ    resultLen+56(FP), CX
+    //Get minimum length.
     CMPQ    AX, CX
-    JGE     compareLengths
-    MOVQ    AX, CX
-compareLengths:
+    CMOVQLT AX, CX
     CMPQ    BX, CX
-    JGE     initializeLoops
-    MOVQ    BX, CX
-initializeLoops:
-    MOVQ    $0, AX
+    CMOVQLT BX, CX
     //Load slices data pointers.
     MOVQ    leftData+0(FP), SI
     MOVQ    rightData+24(FP), DX
     MOVQ    resultData+48(FP), DI
+    //Initialize loop index.
+    MOVQ    $0, AX
 multipleDataLoop:
     MOVQ    CX, BX
     SUBQ    AX, BX
