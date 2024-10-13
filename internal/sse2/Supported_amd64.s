@@ -7,7 +7,7 @@ TEXT ·Supported(SB), 4, $0
     CPUID
     TESTQ   $(1<<26), DX
     JZ      sse2False
-sse2True:
+    //sse2True:
     MOVB    $1, bool+0(FP)
     RET
 sse2False:

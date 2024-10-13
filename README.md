@@ -18,8 +18,8 @@ Future 64-bit ARM support is planned.
 |AddFloat64|         |SUPPORTED|         |SUPPORTED|         |
 |AddInt32  |         |SUPPORTED|         |         |SUPPORTED|
 |AddInt64  |         |SUPPORTED|         |         |SUPPORTED|
-|AndInt32  |         |         |         |         |         |
-|AndInt64  |         |         |         |         |         |
+|AndInt32  |         |SUPPORTED|         |         |SUPPORTED|
+|AndInt64  |         |SUPPORTED|         |         |SUPPORTED|
 |DivFloat32|SUPPORTED|         |         |SUPPORTED|         |
 |DivFloat64|         |SUPPORTED|         |SUPPORTED|         |
 |DivInt32  |         |         |         |         |         |
@@ -28,11 +28,11 @@ Future 64-bit ARM support is planned.
 |MulFloat64|         |SUPPORTED|         |SUPPORTED|         |
 |MulInt32  |         |         |SUPPORTED|         |SUPPORTED|
 |MulInt64  |         |         |         |         |         |
-|OrInt32   |         |         |         |         |         |
-|OrInt64   |         |         |         |         |         |
+|OrInt32   |         |SUPPORTED|         |         |SUPPORTED|
+|OrInt64   |         |SUPPORTED|         |         |SUPPORTED|
 |SubFloat32|SUPPORTED|         |         |SUPPORTED|         |
 |SubFloat64|         |SUPPORTED|         |SUPPORTED|         |
 |SubInt32  |         |SUPPORTED|         |         |SUPPORTED|
 |SubInt64  |         |SUPPORTED|         |         |SUPPORTED|
-|XorInt32  |         |         |         |         |         |
-|XorInt64  |         |         |         |         |         |
+|XorInt32  |         |SUPPORTED|         |         |SUPPORTED|
+|XorInt64  |         |SUPPORTED|         |         |SUPPORTED|

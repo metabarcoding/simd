@@ -20,7 +20,7 @@ TEXT ·Supported(SB), 4, $0
     JZ      avx2False
     TESTQ   $(1<<2), AX
     JZ      avx2False
-avx2True:
+    //avx2True:
     MOVB    $1, bool+0(FP)
     RET
 avx2False:
