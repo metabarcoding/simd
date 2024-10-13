@@ -1,5 +1,5 @@
 # SIMD (Single Instruction, Multiple Data)
-Simd support for arithmetic operations. Allowing for parallel element-wise computations.
+Simd support via Plan9 assemble code for arithmetic operations. Allowing for parallel element-wise computations.
 ## Function Documentation
 - Online at [pkg.go.dev/github.com/pehringer/simd](https://pkg.go.dev/github.com/pehringer/simd).  
 - Locally in ```simd.go``` GoDoc comments.
@@ -8,21 +8,21 @@ Simd support for arithmetic operations. Allowing for parallel element-wise compu
 ![Medium Vectors](images/MediumVectorsFloat32Addition.png)
 ![Large Vectors](images/SmallVectorsFloat32Addition.png)  
 ## AMD64 Simd Support
-|          |SSE|SSE2|SSE4.1|AVX|AVX2|
-|----------|---|----|------|---|----|
-|AddFloat32|X  |    |      |X  |    |
-|AddFloat64|   |X   |      |X  |    |
-|AddInt32  |   |X   |      |   |X   |
-|AddInt64  |   |X   |      |   |X   |
-|DivFloat32|X  |    |      |X  |    |
-|DivFloat64|   |X   |      |X  |    |
-|DivInt32  |   |    |      |   |    |
-|DivInt64  |   |    |      |   |    |
-|MulFloat32|X  |    |      |X  |    |
-|MulFloat64|   |X   |      |X  |    |
-|MulInt32  |   |    |X     |   |X   |
-|MulInt64  |   |    |      |   |    |
-|SubFloat32|X  |    |      |X  |    |
-|SubFloat64|   |X   |      |X  |    |
-|SubInt32  |   |X   |      |   |X   |
-|SubInt64  |   |X   |      |   |X   |
+|          |SSE      |SSE2     |SSE4.1   |AVX      |AVX2     |
+|----------|---------|---------|---------|---------|---------|
+|AddFloat32|SUPPORTED|         |         |SUPPORTED|         |
+|AddFloat64|         |SUPPORTED|         |SUPPORTED|         |
+|AddInt32  |         |SUPPORTED|         |         |SUPPORTED|
+|AddInt64  |         |SUPPORTED|         |         |SUPPORTED|
+|DivFloat32|SUPPORTED|         |         |SUPPORTED|         |
+|DivFloat64|         |SUPPORTED|         |SUPPORTED|         |
+|DivInt32  |         |         |         |         |         |
+|DivInt64  |         |         |         |         |         |
+|MulFloat32|SUPPORTED|         |         |SUPPORTED|         |
+|MulFloat64|         |SUPPORTED|         |SUPPORTED|         |
+|MulInt32  |         |         |SUPPORTED|         |SUPPORTED|
+|MulInt64  |         |         |         |         |         |
+|SubFloat32|SUPPORTED|         |         |SUPPORTED|         |
+|SubFloat64|         |SUPPORTED|         |SUPPORTED|         |
+|SubInt32  |         |SUPPORTED|         |         |SUPPORTED|
+|SubInt64  |         |SUPPORTED|         |         |SUPPORTED|
