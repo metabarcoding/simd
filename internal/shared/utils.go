@@ -4,46 +4,6 @@ import (
     "testing"
 )
 
-var (
-    BenchSizes []int = []int{
-        1000,
-        2000,
-        3000,
-        4000,
-        5000,
-        6000,
-        7000,
-        8000,
-        9000,
-       10000,
-       11000,
-       12000,
-       13000,
-       14000,
-       15000,
-       16000,
-       17000,
-       18000,
-       19000,
-       20000,
-       21000,
-       22000,
-       23000,
-       24000,
-       25000,
-       26000,
-       27000,
-       28000,
-       29000,
-       30000,
-    }
-)
-
-type (
-    Element interface {int32 | int64 | float32 | float64}
-    Operation[E Element] func(left, right, result []E) int
-)
-
 func CheckSlice[E Element](t *testing.T, test, control []E) bool {
     if len(test) != len(control) {
         t.Errorf("lengths not equal")
