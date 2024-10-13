@@ -1,5 +1,8 @@
 # SIMD (Single Instruction, Multiple Data)
-Simd support via Plan9 assemble code for arithmetic operations. Allowing for parallel element-wise computations.
+Simd support via Plan9 assemble code for arithmetic operations.
+Allowing for parallel element-wise computations.
+Currently only 64-bit x86 is supported.
+Future 64-bit ARM support is planned.
 ## Function Documentation
 - Online at [pkg.go.dev/github.com/pehringer/simd](https://pkg.go.dev/github.com/pehringer/simd).  
 - Locally in ```simd.go``` GoDoc comments.
