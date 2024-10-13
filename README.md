@@ -2,7 +2,11 @@
 Simd support for arithmetic operations. Allowing for parallel element-wise computations.
 ## Function Documentation
 - Online at [pkg.go.dev/github.com/pehringer/simd](https://pkg.go.dev/github.com/pehringer/simd).  
-- Locally in ```simd.go``` GoDoc comments.  
+- Locally in ```simd.go``` GoDoc comments.
+## AMD64 Simd Performance:
+![Large Vectors](images/LargeVectorsFloat32Addition.png)
+![Medium Vectors](images/MediumVectorsFloat32Addition.png)
+![Large Vectors](images/SmallVectorsFloat32Addition.png)  
 ## AMD64 Simd Support
 |          |SSE|SSE2|SSE4.1|AVX|AVX2|
 |----------|---|----|------|---|----|
@@ -22,6 +26,3 @@ Simd support for arithmetic operations. Allowing for parallel element-wise compu
 |SubFloat64|   |X   |      |X  |    |
 |SubInt32  |   |X   |      |   |X   |
 |SubInt64  |   |X   |      |   |X   |
-## AMD64 Simd Performance:
-(My machine has a memory bottleneck, hense the poor AVX performance...)
-![AddFloat32](images/float32_Addition.png)
