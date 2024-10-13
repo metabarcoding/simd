@@ -1,7 +1,7 @@
 # SIMD (Single Instruction, Multiple Data)
 Simd support via Plan9 assemble code for arithmetic and bitwise operations.
 Allowing for parallel element-wise computations.
-Resulting in **200%** to **470%** speedup.
+Resulting in **200 - 470%** speedup.
 Currently only 64-bit x86 is supported.
 Future 64-bit ARM support is planned.
 ## Function Documentation
