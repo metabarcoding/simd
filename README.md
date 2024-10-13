@@ -1,6 +1,7 @@
 # SIMD (Single Instruction, Multiple Data)
-Simd support via Plan9 assemble code for arithmetic operations.
+Simd support via Plan9 assemble code for arithmetic and bitwise operations.
 Allowing for parallel element-wise computations.
+Resulting in **200%** to **470%** speedup.
 Currently only 64-bit x86 is supported.
 Future 64-bit ARM support is planned.
 ## Function Documentation
@@ -17,6 +18,8 @@ Future 64-bit ARM support is planned.
 |AddFloat64|         |SUPPORTED|         |SUPPORTED|         |
 |AddInt32  |         |SUPPORTED|         |         |SUPPORTED|
 |AddInt64  |         |SUPPORTED|         |         |SUPPORTED|
+|AndInt32  |         |         |         |         |         |
+|AndInt64  |         |         |         |         |         |
 |DivFloat32|SUPPORTED|         |         |SUPPORTED|         |
 |DivFloat64|         |SUPPORTED|         |SUPPORTED|         |
 |DivInt32  |         |         |         |         |         |
@@ -25,7 +28,11 @@ Future 64-bit ARM support is planned.
 |MulFloat64|         |SUPPORTED|         |SUPPORTED|         |
 |MulInt32  |         |         |SUPPORTED|         |SUPPORTED|
 |MulInt64  |         |         |         |         |         |
+|OrInt32   |         |         |         |         |         |
+|OrInt64   |         |         |         |         |         |
 |SubFloat32|SUPPORTED|         |         |SUPPORTED|         |
 |SubFloat64|         |SUPPORTED|         |SUPPORTED|         |
 |SubInt32  |         |SUPPORTED|         |         |SUPPORTED|
 |SubInt64  |         |SUPPORTED|         |         |SUPPORTED|
+|XorInt32  |         |         |         |         |         |
+|XorInt64  |         |         |         |         |         |

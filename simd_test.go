@@ -7,46 +7,6 @@ import (
         "github.com/pehringer/simd/internal/shared"
 )
 
-func TestAddInt32Zero(t *testing.T) {
-    shared.CheckOperation(t, AddInt32, fallback.Add, []int32{}, []int32{}, []int32{})
-}
-
-func TestAddInt32Prime(t *testing.T) {
-    shared.CheckOperation(t, AddInt32, fallback.Add, shared.Vector[int32](11), shared.Vector[int32](13), shared.Vector[int32](17))
-    shared.CheckOperation(t, AddInt32, fallback.Add, shared.Vector[int32](29), shared.Vector[int32](19), shared.Vector[int32](23))
-    shared.CheckOperation(t, AddInt32, fallback.Add, shared.Vector[int32](37), shared.Vector[int32](41), shared.Vector[int32](31))
-    shared.CheckOperation(t, AddInt32, fallback.Add, shared.Vector[int32](43), shared.Vector[int32](47), shared.Vector[int32](53))
-    shared.CheckOperation(t, AddInt32, fallback.Add, shared.Vector[int32](67), shared.Vector[int32](59), shared.Vector[int32](61))
-    shared.CheckOperation(t, AddInt32, fallback.Add, shared.Vector[int32](73), shared.Vector[int32](79), shared.Vector[int32](71))
-}
-
-func TestAddInt32PowerTwo(t *testing.T) {
-    shared.CheckOperation(t, AddInt32, fallback.Add, shared.Vector[int32](1024), shared.Vector[int32](1024), shared.Vector[int32](1024))
-    shared.CheckOperation(t, AddInt32, fallback.Add, shared.Vector[int32](2048), shared.Vector[int32](2048), shared.Vector[int32](2048))
-    shared.CheckOperation(t, AddInt32, fallback.Add, shared.Vector[int32](4096), shared.Vector[int32](4096), shared.Vector[int32](4096))
-    shared.CheckOperation(t, AddInt32, fallback.Add, shared.Vector[int32](8192), shared.Vector[int32](8192), shared.Vector[int32](8192))
-}
-
-func TestAddInt64Zero(t *testing.T) {
-    shared.CheckOperation(t, AddInt64, fallback.Add, []int64{}, []int64{}, []int64{})
-}
-
-func TestAddInt64Prime(t *testing.T) {
-    shared.CheckOperation(t, AddInt64, fallback.Add, shared.Vector[int64](11), shared.Vector[int64](13), shared.Vector[int64](17))
-    shared.CheckOperation(t, AddInt64, fallback.Add, shared.Vector[int64](29), shared.Vector[int64](19), shared.Vector[int64](23))
-    shared.CheckOperation(t, AddInt64, fallback.Add, shared.Vector[int64](37), shared.Vector[int64](41), shared.Vector[int64](31))
-    shared.CheckOperation(t, AddInt64, fallback.Add, shared.Vector[int64](43), shared.Vector[int64](47), shared.Vector[int64](53))
-    shared.CheckOperation(t, AddInt64, fallback.Add, shared.Vector[int64](67), shared.Vector[int64](59), shared.Vector[int64](61))
-    shared.CheckOperation(t, AddInt64, fallback.Add, shared.Vector[int64](73), shared.Vector[int64](79), shared.Vector[int64](71))
-}
-
-func TestAddInt64PowerTwo(t *testing.T) {
-    shared.CheckOperation(t, AddInt64, fallback.Add, shared.Vector[int64](1024), shared.Vector[int64](1024), shared.Vector[int64](1024))
-    shared.CheckOperation(t, AddInt64, fallback.Add, shared.Vector[int64](2048), shared.Vector[int64](2048), shared.Vector[int64](2048))
-    shared.CheckOperation(t, AddInt64, fallback.Add, shared.Vector[int64](4096), shared.Vector[int64](4096), shared.Vector[int64](4096))
-    shared.CheckOperation(t, AddInt64, fallback.Add, shared.Vector[int64](8192), shared.Vector[int64](8192), shared.Vector[int64](8192))
-}
-
 func TestAddFloat32Zero(t *testing.T) {
     shared.CheckOperation(t, AddFloat32, fallback.Add, []float32{}, []float32{}, []float32{})
 }
@@ -87,44 +47,84 @@ func TestAddFloat64PowerTwo(t *testing.T) {
     shared.CheckOperation(t, AddFloat64, fallback.Add, shared.Vector[float64](8192), shared.Vector[float64](8192), shared.Vector[float64](8192))
 }
 
-func TestDivInt32Zero(t *testing.T) {
-    shared.CheckOperation(t, DivInt32, fallback.Div, []int32{}, []int32{}, []int32{})
+func TestAddInt32Zero(t *testing.T) {
+    shared.CheckOperation(t, AddInt32, fallback.Add, []int32{}, []int32{}, []int32{})
 }
 
-func TestDivInt32Prime(t *testing.T) {
-    shared.CheckOperation(t, DivInt32, fallback.Div, shared.Vector[int32](11), shared.Vector[int32](13), shared.Vector[int32](17))
-    shared.CheckOperation(t, DivInt32, fallback.Div, shared.Vector[int32](29), shared.Vector[int32](19), shared.Vector[int32](23))
-    shared.CheckOperation(t, DivInt32, fallback.Div, shared.Vector[int32](37), shared.Vector[int32](41), shared.Vector[int32](31))
-    shared.CheckOperation(t, DivInt32, fallback.Div, shared.Vector[int32](43), shared.Vector[int32](47), shared.Vector[int32](53))
-    shared.CheckOperation(t, DivInt32, fallback.Div, shared.Vector[int32](67), shared.Vector[int32](59), shared.Vector[int32](61))
-    shared.CheckOperation(t, DivInt32, fallback.Div, shared.Vector[int32](73), shared.Vector[int32](79), shared.Vector[int32](71))
+func TestAddInt32Prime(t *testing.T) {
+    shared.CheckOperation(t, AddInt32, fallback.Add, shared.Vector[int32](11), shared.Vector[int32](13), shared.Vector[int32](17))
+    shared.CheckOperation(t, AddInt32, fallback.Add, shared.Vector[int32](29), shared.Vector[int32](19), shared.Vector[int32](23))
+    shared.CheckOperation(t, AddInt32, fallback.Add, shared.Vector[int32](37), shared.Vector[int32](41), shared.Vector[int32](31))
+    shared.CheckOperation(t, AddInt32, fallback.Add, shared.Vector[int32](43), shared.Vector[int32](47), shared.Vector[int32](53))
+    shared.CheckOperation(t, AddInt32, fallback.Add, shared.Vector[int32](67), shared.Vector[int32](59), shared.Vector[int32](61))
+    shared.CheckOperation(t, AddInt32, fallback.Add, shared.Vector[int32](73), shared.Vector[int32](79), shared.Vector[int32](71))
 }
 
-func TestDivInt32PowerTwo(t *testing.T) {
-    shared.CheckOperation(t, DivInt32, fallback.Div, shared.Vector[int32](1024), shared.Vector[int32](1024), shared.Vector[int32](1024))
-    shared.CheckOperation(t, DivInt32, fallback.Div, shared.Vector[int32](2048), shared.Vector[int32](2048), shared.Vector[int32](2048))
-    shared.CheckOperation(t, DivInt32, fallback.Div, shared.Vector[int32](4096), shared.Vector[int32](4096), shared.Vector[int32](4096))
-    shared.CheckOperation(t, DivInt32, fallback.Div, shared.Vector[int32](8192), shared.Vector[int32](8192), shared.Vector[int32](8192))
+func TestAddInt32PowerTwo(t *testing.T) {
+    shared.CheckOperation(t, AddInt32, fallback.Add, shared.Vector[int32](1024), shared.Vector[int32](1024), shared.Vector[int32](1024))
+    shared.CheckOperation(t, AddInt32, fallback.Add, shared.Vector[int32](2048), shared.Vector[int32](2048), shared.Vector[int32](2048))
+    shared.CheckOperation(t, AddInt32, fallback.Add, shared.Vector[int32](4096), shared.Vector[int32](4096), shared.Vector[int32](4096))
+    shared.CheckOperation(t, AddInt32, fallback.Add, shared.Vector[int32](8192), shared.Vector[int32](8192), shared.Vector[int32](8192))
 }
 
-func TestDivInt64Zero(t *testing.T) {
-    shared.CheckOperation(t, DivInt64, fallback.Div, []int64{}, []int64{}, []int64{})
+func TestAddInt64Zero(t *testing.T) {
+    shared.CheckOperation(t, AddInt64, fallback.Add, []int64{}, []int64{}, []int64{})
 }
 
-func TestDivInt64Prime(t *testing.T) {
-    shared.CheckOperation(t, DivInt64, fallback.Div, shared.Vector[int64](11), shared.Vector[int64](13), shared.Vector[int64](17))
-    shared.CheckOperation(t, DivInt64, fallback.Div, shared.Vector[int64](29), shared.Vector[int64](19), shared.Vector[int64](23))
-    shared.CheckOperation(t, DivInt64, fallback.Div, shared.Vector[int64](37), shared.Vector[int64](41), shared.Vector[int64](31))
-    shared.CheckOperation(t, DivInt64, fallback.Div, shared.Vector[int64](43), shared.Vector[int64](47), shared.Vector[int64](53))
-    shared.CheckOperation(t, DivInt64, fallback.Div, shared.Vector[int64](67), shared.Vector[int64](59), shared.Vector[int64](61))
-    shared.CheckOperation(t, DivInt64, fallback.Div, shared.Vector[int64](73), shared.Vector[int64](79), shared.Vector[int64](71))
+func TestAddInt64Prime(t *testing.T) {
+    shared.CheckOperation(t, AddInt64, fallback.Add, shared.Vector[int64](11), shared.Vector[int64](13), shared.Vector[int64](17))
+    shared.CheckOperation(t, AddInt64, fallback.Add, shared.Vector[int64](29), shared.Vector[int64](19), shared.Vector[int64](23))
+    shared.CheckOperation(t, AddInt64, fallback.Add, shared.Vector[int64](37), shared.Vector[int64](41), shared.Vector[int64](31))
+    shared.CheckOperation(t, AddInt64, fallback.Add, shared.Vector[int64](43), shared.Vector[int64](47), shared.Vector[int64](53))
+    shared.CheckOperation(t, AddInt64, fallback.Add, shared.Vector[int64](67), shared.Vector[int64](59), shared.Vector[int64](61))
+    shared.CheckOperation(t, AddInt64, fallback.Add, shared.Vector[int64](73), shared.Vector[int64](79), shared.Vector[int64](71))
 }
 
-func TestDivInt64PowerTwo(t *testing.T) {
-    shared.CheckOperation(t, DivInt64, fallback.Div, shared.Vector[int64](1024), shared.Vector[int64](1024), shared.Vector[int64](1024))
-    shared.CheckOperation(t, DivInt64, fallback.Div, shared.Vector[int64](2048), shared.Vector[int64](2048), shared.Vector[int64](2048))
-    shared.CheckOperation(t, DivInt64, fallback.Div, shared.Vector[int64](4096), shared.Vector[int64](4096), shared.Vector[int64](4096))
-    shared.CheckOperation(t, DivInt64, fallback.Div, shared.Vector[int64](8192), shared.Vector[int64](8192), shared.Vector[int64](8192))
+func TestAddInt64PowerTwo(t *testing.T) {
+    shared.CheckOperation(t, AddInt64, fallback.Add, shared.Vector[int64](1024), shared.Vector[int64](1024), shared.Vector[int64](1024))
+    shared.CheckOperation(t, AddInt64, fallback.Add, shared.Vector[int64](2048), shared.Vector[int64](2048), shared.Vector[int64](2048))
+    shared.CheckOperation(t, AddInt64, fallback.Add, shared.Vector[int64](4096), shared.Vector[int64](4096), shared.Vector[int64](4096))
+    shared.CheckOperation(t, AddInt64, fallback.Add, shared.Vector[int64](8192), shared.Vector[int64](8192), shared.Vector[int64](8192))
+}
+
+func TestAndInt32Zero(t *testing.T) {
+    shared.CheckOperation(t, AndInt32, fallback.And, []int32{}, []int32{}, []int32{})
+}
+
+func TestAndInt32Prime(t *testing.T) {
+    shared.CheckOperation(t, AndInt32, fallback.And, shared.Vector[int32](11), shared.Vector[int32](13), shared.Vector[int32](17))
+    shared.CheckOperation(t, AndInt32, fallback.And, shared.Vector[int32](29), shared.Vector[int32](19), shared.Vector[int32](23))
+    shared.CheckOperation(t, AndInt32, fallback.And, shared.Vector[int32](37), shared.Vector[int32](41), shared.Vector[int32](31))
+    shared.CheckOperation(t, AndInt32, fallback.And, shared.Vector[int32](43), shared.Vector[int32](47), shared.Vector[int32](53))
+    shared.CheckOperation(t, AndInt32, fallback.And, shared.Vector[int32](67), shared.Vector[int32](59), shared.Vector[int32](61))
+    shared.CheckOperation(t, AndInt32, fallback.And, shared.Vector[int32](73), shared.Vector[int32](79), shared.Vector[int32](71))
+}
+
+func TestAndInt32PowerTwo(t *testing.T) {
+    shared.CheckOperation(t, AndInt32, fallback.And, shared.Vector[int32](1024), shared.Vector[int32](1024), shared.Vector[int32](1024))
+    shared.CheckOperation(t, AndInt32, fallback.And, shared.Vector[int32](2048), shared.Vector[int32](2048), shared.Vector[int32](2048))
+    shared.CheckOperation(t, AndInt32, fallback.And, shared.Vector[int32](4096), shared.Vector[int32](4096), shared.Vector[int32](4096))
+    shared.CheckOperation(t, AndInt32, fallback.And, shared.Vector[int32](8192), shared.Vector[int32](8192), shared.Vector[int32](8192))
+}
+
+func TestAndInt64Zero(t *testing.T) {
+    shared.CheckOperation(t, AndInt64, fallback.And, []int64{}, []int64{}, []int64{})
+}
+
+func TestAndInt64Prime(t *testing.T) {
+    shared.CheckOperation(t, AndInt64, fallback.And, shared.Vector[int64](11), shared.Vector[int64](13), shared.Vector[int64](17))
+    shared.CheckOperation(t, AndInt64, fallback.And, shared.Vector[int64](29), shared.Vector[int64](19), shared.Vector[int64](23))
+    shared.CheckOperation(t, AndInt64, fallback.And, shared.Vector[int64](37), shared.Vector[int64](41), shared.Vector[int64](31))
+    shared.CheckOperation(t, AndInt64, fallback.And, shared.Vector[int64](43), shared.Vector[int64](47), shared.Vector[int64](53))
+    shared.CheckOperation(t, AndInt64, fallback.And, shared.Vector[int64](67), shared.Vector[int64](59), shared.Vector[int64](61))
+    shared.CheckOperation(t, AndInt64, fallback.And, shared.Vector[int64](73), shared.Vector[int64](79), shared.Vector[int64](71))
+}
+
+func TestAndInt64PowerTwo(t *testing.T) {
+    shared.CheckOperation(t, AndInt64, fallback.And, shared.Vector[int64](1024), shared.Vector[int64](1024), shared.Vector[int64](1024))
+    shared.CheckOperation(t, AndInt64, fallback.And, shared.Vector[int64](2048), shared.Vector[int64](2048), shared.Vector[int64](2048))
+    shared.CheckOperation(t, AndInt64, fallback.And, shared.Vector[int64](4096), shared.Vector[int64](4096), shared.Vector[int64](4096))
+    shared.CheckOperation(t, AndInt64, fallback.And, shared.Vector[int64](8192), shared.Vector[int64](8192), shared.Vector[int64](8192))
 }
 
 func TestDivFloat32Zero(t *testing.T) {
@@ -167,44 +167,44 @@ func TestDivFloat64PowerTwo(t *testing.T) {
     shared.CheckOperation(t, DivFloat64, fallback.Div, shared.Vector[float64](8192), shared.Vector[float64](8192), shared.Vector[float64](8192))
 }
 
-func TestMulInt32Zero(t *testing.T) {
-    shared.CheckOperation(t, MulInt32, fallback.Mul, []int32{}, []int32{}, []int32{})
+func TestDivInt32Zero(t *testing.T) {
+    shared.CheckOperation(t, DivInt32, fallback.Div, []int32{}, []int32{}, []int32{})
 }
 
-func TestMulInt32Prime(t *testing.T) {
-    shared.CheckOperation(t, MulInt32, fallback.Mul, shared.Vector[int32](11), shared.Vector[int32](13), shared.Vector[int32](17))
-    shared.CheckOperation(t, MulInt32, fallback.Mul, shared.Vector[int32](29), shared.Vector[int32](19), shared.Vector[int32](23))
-    shared.CheckOperation(t, MulInt32, fallback.Mul, shared.Vector[int32](37), shared.Vector[int32](41), shared.Vector[int32](31))
-    shared.CheckOperation(t, MulInt32, fallback.Mul, shared.Vector[int32](43), shared.Vector[int32](47), shared.Vector[int32](53))
-    shared.CheckOperation(t, MulInt32, fallback.Mul, shared.Vector[int32](67), shared.Vector[int32](59), shared.Vector[int32](61))
-    shared.CheckOperation(t, MulInt32, fallback.Mul, shared.Vector[int32](73), shared.Vector[int32](79), shared.Vector[int32](71))
+func TestDivInt32Prime(t *testing.T) {
+    shared.CheckOperation(t, DivInt32, fallback.Div, shared.Vector[int32](11), shared.Vector[int32](13), shared.Vector[int32](17))
+    shared.CheckOperation(t, DivInt32, fallback.Div, shared.Vector[int32](29), shared.Vector[int32](19), shared.Vector[int32](23))
+    shared.CheckOperation(t, DivInt32, fallback.Div, shared.Vector[int32](37), shared.Vector[int32](41), shared.Vector[int32](31))
+    shared.CheckOperation(t, DivInt32, fallback.Div, shared.Vector[int32](43), shared.Vector[int32](47), shared.Vector[int32](53))
+    shared.CheckOperation(t, DivInt32, fallback.Div, shared.Vector[int32](67), shared.Vector[int32](59), shared.Vector[int32](61))
+    shared.CheckOperation(t, DivInt32, fallback.Div, shared.Vector[int32](73), shared.Vector[int32](79), shared.Vector[int32](71))
 }
 
-func TestMulInt32PowerTwo(t *testing.T) {
-    shared.CheckOperation(t, MulInt32, fallback.Mul, shared.Vector[int32](1024), shared.Vector[int32](1024), shared.Vector[int32](1024))
-    shared.CheckOperation(t, MulInt32, fallback.Mul, shared.Vector[int32](2048), shared.Vector[int32](2048), shared.Vector[int32](2048))
-    shared.CheckOperation(t, MulInt32, fallback.Mul, shared.Vector[int32](4096), shared.Vector[int32](4096), shared.Vector[int32](4096))
-    shared.CheckOperation(t, MulInt32, fallback.Mul, shared.Vector[int32](8192), shared.Vector[int32](8192), shared.Vector[int32](8192))
+func TestDivInt32PowerTwo(t *testing.T) {
+    shared.CheckOperation(t, DivInt32, fallback.Div, shared.Vector[int32](1024), shared.Vector[int32](1024), shared.Vector[int32](1024))
+    shared.CheckOperation(t, DivInt32, fallback.Div, shared.Vector[int32](2048), shared.Vector[int32](2048), shared.Vector[int32](2048))
+    shared.CheckOperation(t, DivInt32, fallback.Div, shared.Vector[int32](4096), shared.Vector[int32](4096), shared.Vector[int32](4096))
+    shared.CheckOperation(t, DivInt32, fallback.Div, shared.Vector[int32](8192), shared.Vector[int32](8192), shared.Vector[int32](8192))
 }
 
-func TestMulInt64Zero(t *testing.T) {
-    shared.CheckOperation(t, MulInt64, fallback.Mul, []int64{}, []int64{}, []int64{})
+func TestDivInt64Zero(t *testing.T) {
+    shared.CheckOperation(t, DivInt64, fallback.Div, []int64{}, []int64{}, []int64{})
 }
 
-func TestMulInt64Prime(t *testing.T) {
-    shared.CheckOperation(t, MulInt64, fallback.Mul, shared.Vector[int64](11), shared.Vector[int64](13), shared.Vector[int64](17))
-    shared.CheckOperation(t, MulInt64, fallback.Mul, shared.Vector[int64](29), shared.Vector[int64](19), shared.Vector[int64](23))
-    shared.CheckOperation(t, MulInt64, fallback.Mul, shared.Vector[int64](37), shared.Vector[int64](41), shared.Vector[int64](31))
-    shared.CheckOperation(t, MulInt64, fallback.Mul, shared.Vector[int64](43), shared.Vector[int64](47), shared.Vector[int64](53))
-    shared.CheckOperation(t, MulInt64, fallback.Mul, shared.Vector[int64](67), shared.Vector[int64](59), shared.Vector[int64](61))
-    shared.CheckOperation(t, MulInt64, fallback.Mul, shared.Vector[int64](73), shared.Vector[int64](79), shared.Vector[int64](71))
+func TestDivInt64Prime(t *testing.T) {
+    shared.CheckOperation(t, DivInt64, fallback.Div, shared.Vector[int64](11), shared.Vector[int64](13), shared.Vector[int64](17))
+    shared.CheckOperation(t, DivInt64, fallback.Div, shared.Vector[int64](29), shared.Vector[int64](19), shared.Vector[int64](23))
+    shared.CheckOperation(t, DivInt64, fallback.Div, shared.Vector[int64](37), shared.Vector[int64](41), shared.Vector[int64](31))
+    shared.CheckOperation(t, DivInt64, fallback.Div, shared.Vector[int64](43), shared.Vector[int64](47), shared.Vector[int64](53))
+    shared.CheckOperation(t, DivInt64, fallback.Div, shared.Vector[int64](67), shared.Vector[int64](59), shared.Vector[int64](61))
+    shared.CheckOperation(t, DivInt64, fallback.Div, shared.Vector[int64](73), shared.Vector[int64](79), shared.Vector[int64](71))
 }
 
-func TestMulInt64PowerTwo(t *testing.T) {
-    shared.CheckOperation(t, MulInt64, fallback.Mul, shared.Vector[int64](1024), shared.Vector[int64](1024), shared.Vector[int64](1024))
-    shared.CheckOperation(t, MulInt64, fallback.Mul, shared.Vector[int64](2048), shared.Vector[int64](2048), shared.Vector[int64](2048))
-    shared.CheckOperation(t, MulInt64, fallback.Mul, shared.Vector[int64](4096), shared.Vector[int64](4096), shared.Vector[int64](4096))
-    shared.CheckOperation(t, MulInt64, fallback.Mul, shared.Vector[int64](8192), shared.Vector[int64](8192), shared.Vector[int64](8192))
+func TestDivInt64PowerTwo(t *testing.T) {
+    shared.CheckOperation(t, DivInt64, fallback.Div, shared.Vector[int64](1024), shared.Vector[int64](1024), shared.Vector[int64](1024))
+    shared.CheckOperation(t, DivInt64, fallback.Div, shared.Vector[int64](2048), shared.Vector[int64](2048), shared.Vector[int64](2048))
+    shared.CheckOperation(t, DivInt64, fallback.Div, shared.Vector[int64](4096), shared.Vector[int64](4096), shared.Vector[int64](4096))
+    shared.CheckOperation(t, DivInt64, fallback.Div, shared.Vector[int64](8192), shared.Vector[int64](8192), shared.Vector[int64](8192))
 }
 
 func TestMulFloat32Zero(t *testing.T) {
@@ -247,44 +247,84 @@ func TestMulFloat64PowerTwo(t *testing.T) {
     shared.CheckOperation(t, MulFloat64, fallback.Mul, shared.Vector[float64](8192), shared.Vector[float64](8192), shared.Vector[float64](8192))
 }
 
-func TestSubInt32Zero(t *testing.T) {
-    shared.CheckOperation(t, SubInt32, fallback.Sub, []int32{}, []int32{}, []int32{})
+func TestMulInt32Zero(t *testing.T) {
+    shared.CheckOperation(t, MulInt32, fallback.Mul, []int32{}, []int32{}, []int32{})
 }
 
-func TestSubInt32Prime(t *testing.T) {
-    shared.CheckOperation(t, SubInt32, fallback.Sub, shared.Vector[int32](11), shared.Vector[int32](13), shared.Vector[int32](17))
-    shared.CheckOperation(t, SubInt32, fallback.Sub, shared.Vector[int32](29), shared.Vector[int32](19), shared.Vector[int32](23))
-    shared.CheckOperation(t, SubInt32, fallback.Sub, shared.Vector[int32](37), shared.Vector[int32](41), shared.Vector[int32](31))
-    shared.CheckOperation(t, SubInt32, fallback.Sub, shared.Vector[int32](43), shared.Vector[int32](47), shared.Vector[int32](53))
-    shared.CheckOperation(t, SubInt32, fallback.Sub, shared.Vector[int32](67), shared.Vector[int32](59), shared.Vector[int32](61))
-    shared.CheckOperation(t, SubInt32, fallback.Sub, shared.Vector[int32](73), shared.Vector[int32](79), shared.Vector[int32](71))
+func TestMulInt32Prime(t *testing.T) {
+    shared.CheckOperation(t, MulInt32, fallback.Mul, shared.Vector[int32](11), shared.Vector[int32](13), shared.Vector[int32](17))
+    shared.CheckOperation(t, MulInt32, fallback.Mul, shared.Vector[int32](29), shared.Vector[int32](19), shared.Vector[int32](23))
+    shared.CheckOperation(t, MulInt32, fallback.Mul, shared.Vector[int32](37), shared.Vector[int32](41), shared.Vector[int32](31))
+    shared.CheckOperation(t, MulInt32, fallback.Mul, shared.Vector[int32](43), shared.Vector[int32](47), shared.Vector[int32](53))
+    shared.CheckOperation(t, MulInt32, fallback.Mul, shared.Vector[int32](67), shared.Vector[int32](59), shared.Vector[int32](61))
+    shared.CheckOperation(t, MulInt32, fallback.Mul, shared.Vector[int32](73), shared.Vector[int32](79), shared.Vector[int32](71))
 }
 
-func TestSubInt32PowerTwo(t *testing.T) {
-    shared.CheckOperation(t, SubInt32, fallback.Sub, shared.Vector[int32](1024), shared.Vector[int32](1024), shared.Vector[int32](1024))
-    shared.CheckOperation(t, SubInt32, fallback.Sub, shared.Vector[int32](2048), shared.Vector[int32](2048), shared.Vector[int32](2048))
-    shared.CheckOperation(t, SubInt32, fallback.Sub, shared.Vector[int32](4096), shared.Vector[int32](4096), shared.Vector[int32](4096))
-    shared.CheckOperation(t, SubInt32, fallback.Sub, shared.Vector[int32](8192), shared.Vector[int32](8192), shared.Vector[int32](8192))
+func TestMulInt32PowerTwo(t *testing.T) {
+    shared.CheckOperation(t, MulInt32, fallback.Mul, shared.Vector[int32](1024), shared.Vector[int32](1024), shared.Vector[int32](1024))
+    shared.CheckOperation(t, MulInt32, fallback.Mul, shared.Vector[int32](2048), shared.Vector[int32](2048), shared.Vector[int32](2048))
+    shared.CheckOperation(t, MulInt32, fallback.Mul, shared.Vector[int32](4096), shared.Vector[int32](4096), shared.Vector[int32](4096))
+    shared.CheckOperation(t, MulInt32, fallback.Mul, shared.Vector[int32](8192), shared.Vector[int32](8192), shared.Vector[int32](8192))
 }
 
-func TestSubInt64Zero(t *testing.T) {
-    shared.CheckOperation(t, SubInt64, fallback.Sub, []int64{}, []int64{}, []int64{})
+func TestMulInt64Zero(t *testing.T) {
+    shared.CheckOperation(t, MulInt64, fallback.Mul, []int64{}, []int64{}, []int64{})
 }
 
-func TestSubInt64Prime(t *testing.T) {
-    shared.CheckOperation(t, SubInt64, fallback.Sub, shared.Vector[int64](11), shared.Vector[int64](13), shared.Vector[int64](17))
-    shared.CheckOperation(t, SubInt64, fallback.Sub, shared.Vector[int64](29), shared.Vector[int64](19), shared.Vector[int64](23))
-    shared.CheckOperation(t, SubInt64, fallback.Sub, shared.Vector[int64](37), shared.Vector[int64](41), shared.Vector[int64](31))
-    shared.CheckOperation(t, SubInt64, fallback.Sub, shared.Vector[int64](43), shared.Vector[int64](47), shared.Vector[int64](53))
-    shared.CheckOperation(t, SubInt64, fallback.Sub, shared.Vector[int64](67), shared.Vector[int64](59), shared.Vector[int64](61))
-    shared.CheckOperation(t, SubInt64, fallback.Sub, shared.Vector[int64](73), shared.Vector[int64](79), shared.Vector[int64](71))
+func TestMulInt64Prime(t *testing.T) {
+    shared.CheckOperation(t, MulInt64, fallback.Mul, shared.Vector[int64](11), shared.Vector[int64](13), shared.Vector[int64](17))
+    shared.CheckOperation(t, MulInt64, fallback.Mul, shared.Vector[int64](29), shared.Vector[int64](19), shared.Vector[int64](23))
+    shared.CheckOperation(t, MulInt64, fallback.Mul, shared.Vector[int64](37), shared.Vector[int64](41), shared.Vector[int64](31))
+    shared.CheckOperation(t, MulInt64, fallback.Mul, shared.Vector[int64](43), shared.Vector[int64](47), shared.Vector[int64](53))
+    shared.CheckOperation(t, MulInt64, fallback.Mul, shared.Vector[int64](67), shared.Vector[int64](59), shared.Vector[int64](61))
+    shared.CheckOperation(t, MulInt64, fallback.Mul, shared.Vector[int64](73), shared.Vector[int64](79), shared.Vector[int64](71))
 }
 
-func TestSubInt64PowerTwo(t *testing.T) {
-    shared.CheckOperation(t, SubInt64, fallback.Sub, shared.Vector[int64](1024), shared.Vector[int64](1024), shared.Vector[int64](1024))
-    shared.CheckOperation(t, SubInt64, fallback.Sub, shared.Vector[int64](2048), shared.Vector[int64](2048), shared.Vector[int64](2048))
-    shared.CheckOperation(t, SubInt64, fallback.Sub, shared.Vector[int64](4096), shared.Vector[int64](4096), shared.Vector[int64](4096))
-    shared.CheckOperation(t, SubInt64, fallback.Sub, shared.Vector[int64](8192), shared.Vector[int64](8192), shared.Vector[int64](8192))
+func TestMulInt64PowerTwo(t *testing.T) {
+    shared.CheckOperation(t, MulInt64, fallback.Mul, shared.Vector[int64](1024), shared.Vector[int64](1024), shared.Vector[int64](1024))
+    shared.CheckOperation(t, MulInt64, fallback.Mul, shared.Vector[int64](2048), shared.Vector[int64](2048), shared.Vector[int64](2048))
+    shared.CheckOperation(t, MulInt64, fallback.Mul, shared.Vector[int64](4096), shared.Vector[int64](4096), shared.Vector[int64](4096))
+    shared.CheckOperation(t, MulInt64, fallback.Mul, shared.Vector[int64](8192), shared.Vector[int64](8192), shared.Vector[int64](8192))
+}
+
+func TestOrInt32Zero(t *testing.T) {
+    shared.CheckOperation(t, OrInt32, fallback.Sub, []int32{}, []int32{}, []int32{})
+}
+
+func TestOrInt32Prime(t *testing.T) {
+    shared.CheckOperation(t, OrInt32, fallback.Or, shared.Vector[int32](11), shared.Vector[int32](13), shared.Vector[int32](17))
+    shared.CheckOperation(t, OrInt32, fallback.Or, shared.Vector[int32](29), shared.Vector[int32](19), shared.Vector[int32](23))
+    shared.CheckOperation(t, OrInt32, fallback.Or, shared.Vector[int32](37), shared.Vector[int32](41), shared.Vector[int32](31))
+    shared.CheckOperation(t, OrInt32, fallback.Or, shared.Vector[int32](43), shared.Vector[int32](47), shared.Vector[int32](53))
+    shared.CheckOperation(t, OrInt32, fallback.Or, shared.Vector[int32](67), shared.Vector[int32](59), shared.Vector[int32](61))
+    shared.CheckOperation(t, OrInt32, fallback.Or, shared.Vector[int32](73), shared.Vector[int32](79), shared.Vector[int32](71))
+}
+
+func TestOrInt32PowerTwo(t *testing.T) {
+    shared.CheckOperation(t, OrInt32, fallback.Or, shared.Vector[int32](1024), shared.Vector[int32](1024), shared.Vector[int32](1024))
+    shared.CheckOperation(t, OrInt32, fallback.Or, shared.Vector[int32](2048), shared.Vector[int32](2048), shared.Vector[int32](2048))
+    shared.CheckOperation(t, OrInt32, fallback.Or, shared.Vector[int32](4096), shared.Vector[int32](4096), shared.Vector[int32](4096))
+    shared.CheckOperation(t, OrInt32, fallback.Or, shared.Vector[int32](8192), shared.Vector[int32](8192), shared.Vector[int32](8192))
+}
+
+func TestOrInt64Zero(t *testing.T) {
+    shared.CheckOperation(t, OrInt64, fallback.Or, []int64{}, []int64{}, []int64{})
+}
+
+func TestOrInt64Prime(t *testing.T) {
+    shared.CheckOperation(t, OrInt64, fallback.Or, shared.Vector[int64](11), shared.Vector[int64](13), shared.Vector[int64](17))
+    shared.CheckOperation(t, OrInt64, fallback.Or, shared.Vector[int64](29), shared.Vector[int64](19), shared.Vector[int64](23))
+    shared.CheckOperation(t, OrInt64, fallback.Or, shared.Vector[int64](37), shared.Vector[int64](41), shared.Vector[int64](31))
+    shared.CheckOperation(t, OrInt64, fallback.Or, shared.Vector[int64](43), shared.Vector[int64](47), shared.Vector[int64](53))
+    shared.CheckOperation(t, OrInt64, fallback.Or, shared.Vector[int64](67), shared.Vector[int64](59), shared.Vector[int64](61))
+    shared.CheckOperation(t, OrInt64, fallback.Or, shared.Vector[int64](73), shared.Vector[int64](79), shared.Vector[int64](71))
+}
+
+func TestOrInt64PowerTwo(t *testing.T) {
+    shared.CheckOperation(t, OrInt64, fallback.Or, shared.Vector[int64](1024), shared.Vector[int64](1024), shared.Vector[int64](1024))
+    shared.CheckOperation(t, OrInt64, fallback.Or, shared.Vector[int64](2048), shared.Vector[int64](2048), shared.Vector[int64](2048))
+    shared.CheckOperation(t, OrInt64, fallback.Or, shared.Vector[int64](4096), shared.Vector[int64](4096), shared.Vector[int64](4096))
+    shared.CheckOperation(t, OrInt64, fallback.Or, shared.Vector[int64](8192), shared.Vector[int64](8192), shared.Vector[int64](8192))
 }
 
 func TestSubFloat32Zero(t *testing.T) {
@@ -325,6 +365,86 @@ func TestSubFloat64PowerTwo(t *testing.T) {
     shared.CheckOperation(t, SubFloat64, fallback.Sub, shared.Vector[float64](2048), shared.Vector[float64](2048), shared.Vector[float64](2048))
     shared.CheckOperation(t, SubFloat64, fallback.Sub, shared.Vector[float64](4096), shared.Vector[float64](4096), shared.Vector[float64](4096))
     shared.CheckOperation(t, SubFloat64, fallback.Sub, shared.Vector[float64](8192), shared.Vector[float64](8192), shared.Vector[float64](8192))
+}
+
+func TestSubInt32Zero(t *testing.T) {
+    shared.CheckOperation(t, SubInt32, fallback.Sub, []int32{}, []int32{}, []int32{})
+}
+
+func TestSubInt32Prime(t *testing.T) {
+    shared.CheckOperation(t, SubInt32, fallback.Sub, shared.Vector[int32](11), shared.Vector[int32](13), shared.Vector[int32](17))
+    shared.CheckOperation(t, SubInt32, fallback.Sub, shared.Vector[int32](29), shared.Vector[int32](19), shared.Vector[int32](23))
+    shared.CheckOperation(t, SubInt32, fallback.Sub, shared.Vector[int32](37), shared.Vector[int32](41), shared.Vector[int32](31))
+    shared.CheckOperation(t, SubInt32, fallback.Sub, shared.Vector[int32](43), shared.Vector[int32](47), shared.Vector[int32](53))
+    shared.CheckOperation(t, SubInt32, fallback.Sub, shared.Vector[int32](67), shared.Vector[int32](59), shared.Vector[int32](61))
+    shared.CheckOperation(t, SubInt32, fallback.Sub, shared.Vector[int32](73), shared.Vector[int32](79), shared.Vector[int32](71))
+}
+
+func TestSubInt32PowerTwo(t *testing.T) {
+    shared.CheckOperation(t, SubInt32, fallback.Sub, shared.Vector[int32](1024), shared.Vector[int32](1024), shared.Vector[int32](1024))
+    shared.CheckOperation(t, SubInt32, fallback.Sub, shared.Vector[int32](2048), shared.Vector[int32](2048), shared.Vector[int32](2048))
+    shared.CheckOperation(t, SubInt32, fallback.Sub, shared.Vector[int32](4096), shared.Vector[int32](4096), shared.Vector[int32](4096))
+    shared.CheckOperation(t, SubInt32, fallback.Sub, shared.Vector[int32](8192), shared.Vector[int32](8192), shared.Vector[int32](8192))
+}
+
+func TestSubInt64Zero(t *testing.T) {
+    shared.CheckOperation(t, SubInt64, fallback.Sub, []int64{}, []int64{}, []int64{})
+}
+
+func TestSubInt64Prime(t *testing.T) {
+    shared.CheckOperation(t, SubInt64, fallback.Sub, shared.Vector[int64](11), shared.Vector[int64](13), shared.Vector[int64](17))
+    shared.CheckOperation(t, SubInt64, fallback.Sub, shared.Vector[int64](29), shared.Vector[int64](19), shared.Vector[int64](23))
+    shared.CheckOperation(t, SubInt64, fallback.Sub, shared.Vector[int64](37), shared.Vector[int64](41), shared.Vector[int64](31))
+    shared.CheckOperation(t, SubInt64, fallback.Sub, shared.Vector[int64](43), shared.Vector[int64](47), shared.Vector[int64](53))
+    shared.CheckOperation(t, SubInt64, fallback.Sub, shared.Vector[int64](67), shared.Vector[int64](59), shared.Vector[int64](61))
+    shared.CheckOperation(t, SubInt64, fallback.Sub, shared.Vector[int64](73), shared.Vector[int64](79), shared.Vector[int64](71))
+}
+
+func TestSubInt64PowerTwo(t *testing.T) {
+    shared.CheckOperation(t, SubInt64, fallback.Sub, shared.Vector[int64](1024), shared.Vector[int64](1024), shared.Vector[int64](1024))
+    shared.CheckOperation(t, SubInt64, fallback.Sub, shared.Vector[int64](2048), shared.Vector[int64](2048), shared.Vector[int64](2048))
+    shared.CheckOperation(t, SubInt64, fallback.Sub, shared.Vector[int64](4096), shared.Vector[int64](4096), shared.Vector[int64](4096))
+    shared.CheckOperation(t, SubInt64, fallback.Sub, shared.Vector[int64](8192), shared.Vector[int64](8192), shared.Vector[int64](8192))
+}
+
+func TestXorInt32Zero(t *testing.T) {
+    shared.CheckOperation(t, XorInt32, fallback.Sub, []int32{}, []int32{}, []int32{})
+}
+
+func TestXorInt32Prime(t *testing.T) {
+    shared.CheckOperation(t, XorInt32, fallback.Xor, shared.Vector[int32](11), shared.Vector[int32](13), shared.Vector[int32](17))
+    shared.CheckOperation(t, XorInt32, fallback.Xor, shared.Vector[int32](29), shared.Vector[int32](19), shared.Vector[int32](23))
+    shared.CheckOperation(t, XorInt32, fallback.Xor, shared.Vector[int32](37), shared.Vector[int32](41), shared.Vector[int32](31))
+    shared.CheckOperation(t, XorInt32, fallback.Xor, shared.Vector[int32](43), shared.Vector[int32](47), shared.Vector[int32](53))
+    shared.CheckOperation(t, XorInt32, fallback.Xor, shared.Vector[int32](67), shared.Vector[int32](59), shared.Vector[int32](61))
+    shared.CheckOperation(t, XorInt32, fallback.Xor, shared.Vector[int32](73), shared.Vector[int32](79), shared.Vector[int32](71))
+}
+
+func TestXorInt32PowerTwo(t *testing.T) {
+    shared.CheckOperation(t, XorInt32, fallback.Xor, shared.Vector[int32](1024), shared.Vector[int32](1024), shared.Vector[int32](1024))
+    shared.CheckOperation(t, XorInt32, fallback.Xor, shared.Vector[int32](2048), shared.Vector[int32](2048), shared.Vector[int32](2048))
+    shared.CheckOperation(t, XorInt32, fallback.Xor, shared.Vector[int32](4096), shared.Vector[int32](4096), shared.Vector[int32](4096))
+    shared.CheckOperation(t, XorInt32, fallback.Xor, shared.Vector[int32](8192), shared.Vector[int32](8192), shared.Vector[int32](8192))
+}
+
+func TestXorInt64Zero(t *testing.T) {
+    shared.CheckOperation(t, XorInt64, fallback.Xor, []int64{}, []int64{}, []int64{})
+}
+
+func TestXorInt64Prime(t *testing.T) {
+    shared.CheckOperation(t, XorInt64, fallback.Xor, shared.Vector[int64](11), shared.Vector[int64](13), shared.Vector[int64](17))
+    shared.CheckOperation(t, XorInt64, fallback.Xor, shared.Vector[int64](29), shared.Vector[int64](19), shared.Vector[int64](23))
+    shared.CheckOperation(t, XorInt64, fallback.Xor, shared.Vector[int64](37), shared.Vector[int64](41), shared.Vector[int64](31))
+    shared.CheckOperation(t, XorInt64, fallback.Xor, shared.Vector[int64](43), shared.Vector[int64](47), shared.Vector[int64](53))
+    shared.CheckOperation(t, XorInt64, fallback.Xor, shared.Vector[int64](67), shared.Vector[int64](59), shared.Vector[int64](61))
+    shared.CheckOperation(t, XorInt64, fallback.Xor, shared.Vector[int64](73), shared.Vector[int64](79), shared.Vector[int64](71))
+}
+
+func TestXorInt64PowerTwo(t *testing.T) {
+    shared.CheckOperation(t, XorInt64, fallback.Xor, shared.Vector[int64](1024), shared.Vector[int64](1024), shared.Vector[int64](1024))
+    shared.CheckOperation(t, XorInt64, fallback.Xor, shared.Vector[int64](2048), shared.Vector[int64](2048), shared.Vector[int64](2048))
+    shared.CheckOperation(t, XorInt64, fallback.Xor, shared.Vector[int64](4096), shared.Vector[int64](4096), shared.Vector[int64](4096))
+    shared.CheckOperation(t, XorInt64, fallback.Xor, shared.Vector[int64](8192), shared.Vector[int64](8192), shared.Vector[int64](8192))
 }
 
 var (

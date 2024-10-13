@@ -1,6 +1,7 @@
 package shared
 
 type (
-    Element interface {int32 | int64 | float32 | float64}
-    Operation[E Element] func(left, right, result []E) int
+    Floating interface {float32 | float64}
+    Integer interface {int32 | int64}
+    Operation[T Floating | Integer] func(left, right, result []T) int
 )
