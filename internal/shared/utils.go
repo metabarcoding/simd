@@ -1,6 +1,7 @@
 package shared
 
 import (
+    "math"
     "testing"
 )
 
@@ -46,17 +47,24 @@ func CheckOperation[T Floating | Integer](t *testing.T, test, control Operation[
 }
 
 var (
-    counter int8
+    increment int32 = 1
+    decrement int32 = math.MaxInt32
 )
 
-func Vector[T Floating | Integer](length int) []T {
+func Large[T Floating | Integer](length int) []T {
     elements := make([]T, length)
     for i := 0; i < length; i++ {
-        counter++
-        if counter == 0 {
-            counter = 1
-        }
-        elements[i] = T(counter)
+        elements[i] = T(decrement)
+        decrement--
+    }
+    return elements
+}
+
+func Small[T Floating | Integer](length int) []T {
+    elements := make([]T, length)
+    for i := 0; i < length; i++ {
+        elements[i] = T(increment)
+        increment++
     }
     return elements
 }
