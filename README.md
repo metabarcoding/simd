@@ -1,5 +1,5 @@
 # SIMD (Single Instruction, Multiple Data)
-Simd support via Plan9 assemble code for arithmetic and bitwise operations.
+Simd support via Go assembly for arithmetic and bitwise operations.
 Allowing for parallel element-wise computations.
 Resulting in **200 - 470%** speedup.
 Currently only 64-bit x86 is supported.
