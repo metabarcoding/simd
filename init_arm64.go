@@ -9,7 +9,6 @@ import (
 
 func init() {
     if neon.Supported() {
-        fmt.Println("NEON")
         addFloat32 = neon.AddFloat32
         addInt32 = neon.AddInt32
         subFloat32 = neon.SubFloat32
