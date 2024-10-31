@@ -40,5 +40,5 @@ singleDataLoop:
     ADD     $1, R0, R0
     B       singleDataLoop
 returnLength:
-    MOVD	    R6, int+72(FP)
+    MOVD    R2, int+72(FP)
     RET

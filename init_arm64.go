@@ -3,8 +3,7 @@
 package simd
 
 import (
-    "fmt"
-    "arm_testing/simd/internal/neon"
+    "github.com/pehringer/simd/internal/neon"
 )
 
 func init() {
