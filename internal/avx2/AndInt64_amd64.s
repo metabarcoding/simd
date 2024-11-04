@@ -1,3 +1,4 @@
+//go:build amd64
 // +build amd64
 
 // func AndInt64(left, right, result []int64) int
