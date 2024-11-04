@@ -1,3 +1,4 @@
+//go:build arm64
 // +build arm64
 
 // func AddInt32(left, right, result []int32) int

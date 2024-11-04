@@ -1,3 +1,4 @@
+//go:build amd64
 // +build amd64
 
 // func SubFloat64(left, right, result []float64) int

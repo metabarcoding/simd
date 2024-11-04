@@ -1,3 +1,4 @@
+//go:build amd64
 // +build amd64
 
 // func AddFloat32(left, right, result []float32) int

@@ -1,3 +1,4 @@
+//go:build arm64
 // +build arm64
 
 // func SubFloat32(left, right, result []float32) int

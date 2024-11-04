@@ -1,3 +1,4 @@
+//go:build amd64
 // +build amd64
 
 // func OrInt32(left, right, result []int32) int
