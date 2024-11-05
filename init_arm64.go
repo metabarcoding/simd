@@ -11,6 +11,7 @@ func init() {
 	if neon.Supported() {
 		addFloat32 = neon.AddFloat32
 		addInt32 = neon.AddInt32
+		mulFloat32 = neon.MulFloat32
 		subFloat32 = neon.SubFloat32
 		subInt32 = neon.SubInt32
 	}
