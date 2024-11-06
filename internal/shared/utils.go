@@ -47,8 +47,8 @@ func CheckOperation[T Floating | Integer](t *testing.T, test, control Operation[
 }
 
 var (
-	increment int32 = 1
-	decrement int32 = math.MaxInt32
+	increment int64 = 1
+	decrement int64 = math.MaxInt64
 )
 
 func Large[T Floating | Integer](length int) []T {

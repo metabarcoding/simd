@@ -1,8 +1,8 @@
 //go:build arm64
 // +build arm64
 
-// func SubInt32(left, right, result []int32) int
-TEXT ·SubInt32(SB), 4, $0
+// func AddInt64(left, right, result []int64) int
+TEXT ·AddInt64(SB), 4, $0
     //Load slices lengths.
     MOVD    leftLen+8(FP), R0
     MOVD    rightLen+32(FP), R1
@@ -20,23 +20,23 @@ TEXT ·SubInt32(SB), 4, $0
     MOVD    $0, R0
 multipleDataLoop:
     SUB     R0, R2, R1
-    CMP     $4, R1
+    CMP     $2, R1
     BLT     singleDataLoop
-    //Sub four int32 values.
-    VLD1.P  16(R3), [V0.S4]
-    VLD1.P  16(R4), [V1.S4]
-    VSUB    V1.S4, V0.S4, V2.S4
-    VST1.P  [V2.S4], 16(R5)
-    ADD     $4, R0, R0
+    //Add two int64 values.
+    VLD1.P  16(R3), [V0.D2]
+    VLD1.P  16(R4), [V1.D2]
+    VADD    V1.D2, V0.D2, V2.D2
+    VST1.P  [V2.D2], 16(R5)
+    ADD     $2, R0, R0
     B       multipleDataLoop
 singleDataLoop:
     CMP     R2, R0
     BGE     returnLength
-    //Sub one int32 value.
-    MOVW.P  4(R3), R6
-    MOVW.P  4(R4), R7
-    SUB     R7, R6, R8
-    MOVW.P  R8, 4(R5)
+    //Add one int64 value.
+    MOVD.P  8(R3), R6
+    MOVD.P  8(R4), R7
+    ADD     R7, R6, R8
+    MOVD.P  R8, 8(R5)
     ADD     $1, R0, R0
     B       singleDataLoop
 returnLength:
