@@ -2,37 +2,37 @@
 Simd support via Go assembly for arithmetic and bitwise operations.
 Allowing for parallel element-wise computations.
 Resulting in **200 - 470%** speedup.
-Currently only 64-bit x86 is supported.
-Future 64-bit ARM support is planned.
+Currently 64-bit x86 is supported, with partial 64-bit ARM support.
 ## Function Documentation
 - Online at [pkg.go.dev/github.com/pehringer/simd](https://pkg.go.dev/github.com/pehringer/simd).  
 - Locally in ```simd.go``` GoDoc comments.
+## Simd Support
+|          |64-bit x86   |64-bit ARM|
+|----------|-------------|----------|
+|AddFloat32|SSE / AVX    |NEON      |
+|AddFloat64|SSE2 / AVX   |          |
+|AddInt32  |SSE2 / AVX2  |NEON      |
+|AddInt64  |SSE2 / AVX2  |NEON      |
+|AndInt32  |SSE2 / AVX2  |          |
+|AndInt64  |SSE2 / AVX2  |          |
+|DivFloat32|SSE / AVX    |          |
+|DivFloat64|SSE2 / AVX   |          |
+|DivInt32  |             |          |
+|DivInt64  |             |          |
+|MulFloat32|SSE / AVX    |NEON      |
+|MulFloat64|SSE2 / AVX   |          |
+|MulInt32  |SSE4.1 / AVX2|          |
+|MulInt64  |             |          |
+|OrInt32   |SSE2 / AVX2  |          |
+|OrInt64   |SSE2 / AVX2  |          |
+|SubFloat32|SSE / AVX    |NEON      |
+|SubFloat64|SSE2 / AVX   |          |
+|SubInt32  |SSE2 / AVX2  |NEON      |
+|SubInt64  |SSE2 / AVX2  |NEON      |
+|XorInt32  |SSE2 / AVX2  |          |
+|XorInt64  |SSE2 / AVX2  |          |
 ## AMD64 Simd Performance:
 ![Large Vectors](images/LargeVectorsFloat32Addition.png)
 ![Medium Vectors](images/MediumVectorsFloat32Addition.png)
 ![Large Vectors](images/SmallVectorsFloat32Addition.png)  
-## AMD64 Simd Support
-|          |SSE      |SSE2     |SSE4.1   |AVX      |AVX2     |
-|----------|---------|---------|---------|---------|---------|
-|AddFloat32|SUPPORTED|         |         |SUPPORTED|         |
-|AddFloat64|         |SUPPORTED|         |SUPPORTED|         |
-|AddInt32  |         |SUPPORTED|         |         |SUPPORTED|
-|AddInt64  |         |SUPPORTED|         |         |SUPPORTED|
-|AndInt32  |         |SUPPORTED|         |         |SUPPORTED|
-|AndInt64  |         |SUPPORTED|         |         |SUPPORTED|
-|DivFloat32|SUPPORTED|         |         |SUPPORTED|         |
-|DivFloat64|         |SUPPORTED|         |SUPPORTED|         |
-|DivInt32  |         |         |         |         |         |
-|DivInt64  |         |         |         |         |         |
-|MulFloat32|SUPPORTED|         |         |SUPPORTED|         |
-|MulFloat64|         |SUPPORTED|         |SUPPORTED|         |
-|MulInt32  |         |         |SUPPORTED|         |SUPPORTED|
-|MulInt64  |         |         |         |         |         |
-|OrInt32   |         |SUPPORTED|         |         |SUPPORTED|
-|OrInt64   |         |SUPPORTED|         |         |SUPPORTED|
-|SubFloat32|SUPPORTED|         |         |SUPPORTED|         |
-|SubFloat64|         |SUPPORTED|         |SUPPORTED|         |
-|SubInt32  |         |SUPPORTED|         |         |SUPPORTED|
-|SubInt64  |         |SUPPORTED|         |         |SUPPORTED|
-|XorInt32  |         |SUPPORTED|         |         |SUPPORTED|
-|XorInt64  |         |SUPPORTED|         |         |SUPPORTED|
+
