@@ -26,7 +26,7 @@ Currently 64-bit x86 is supported, with partial 64-bit ARM support.
 |OrInt32   |SSE2 / AVX2  |          |
 |OrInt64   |SSE2 / AVX2  |          |
 |SubFloat32|SSE / AVX    |NEON      |
-|SubFloat64|SSE2 / AVX   |          |
+|SubFloat64|SSE2 / AVX   |NEON      |
 |SubInt32  |SSE2 / AVX2  |NEON      |
 |SubInt64  |SSE2 / AVX2  |NEON      |
 |XorInt32  |SSE2 / AVX2  |          |
