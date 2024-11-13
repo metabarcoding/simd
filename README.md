@@ -10,7 +10,7 @@ Currently 64-bit x86 is supported, with partial 64-bit ARM support.
 |          |64-bit x86   |64-bit ARM|
 |----------|-------------|----------|
 |AddFloat32|SSE / AVX    |NEON      |
-|AddFloat64|SSE2 / AVX   |          |
+|AddFloat64|SSE2 / AVX   |NEON      |
 |AddInt32  |SSE2 / AVX2  |NEON      |
 |AddInt64  |SSE2 / AVX2  |NEON      |
 |AndInt32  |SSE2 / AVX2  |          |
