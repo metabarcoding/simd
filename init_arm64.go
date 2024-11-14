@@ -4,11 +4,12 @@
 package simd
 
 import (
+	"golang.org/x/sys/cpu"
 	"github.com/pehringer/simd/internal/neon"
 )
 
 func init() {
-	if neon.Supported() {
+	if cpu.ARM64.HasASIMD {
 		addFloat32 = neon.AddFloat32
 		addFloat64 = neon.AddFloat64
 		addInt32 = neon.AddInt32

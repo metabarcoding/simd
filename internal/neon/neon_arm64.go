@@ -3,8 +3,6 @@
 
 package neon
 
-func Supported() bool
-
 func AddFloat32(left, right, result []float32) int
 
 func AddFloat64(left, right, result []float64) int
