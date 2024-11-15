@@ -13,7 +13,7 @@ Currently 64-bit x86 and 64-bit ARM processors are supported.
 |AddFloat64|SSE2 / AVX   |NEON      |
 |AddInt32  |SSE2 / AVX2  |NEON      |
 |AddInt64  |SSE2 / AVX2  |NEON      |
-|AndInt32  |SSE2 / AVX2  |          |
+|AndInt32  |SSE2 / AVX2  |NEON      |
 |AndInt64  |SSE2 / AVX2  |          |
 |DivFloat32|SSE2 / AVX   |          |
 |DivFloat64|SSE2 / AVX   |          |
