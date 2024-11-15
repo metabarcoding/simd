@@ -2,7 +2,7 @@
 Simd support via Go assembly for arithmetic and bitwise operations.
 Allowing for parallel element-wise computations.
 Resulting in **200 - 470%** speedup.
-Currently supports 64-bit x86 and 64-bit ARM processors.
+Currently 64-bit x86 and 64-bit ARM processors are supported.
 ## Function Documentation
 - Online at [pkg.go.dev/github.com/pehringer/simd](https://pkg.go.dev/github.com/pehringer/simd).  
 - Locally in ```simd.go``` GoDoc comments.
