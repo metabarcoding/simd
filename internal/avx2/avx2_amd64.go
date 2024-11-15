@@ -3,8 +3,6 @@
 
 package avx2
 
-func Supported() bool
-
 func AddInt32(left, right, result []int32) int
 
 func AddInt64(left, right, result []int64) int

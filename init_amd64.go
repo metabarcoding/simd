@@ -4,6 +4,7 @@
 package simd
 
 import (
+	"golang.org/x/sys/cpu"
 	"github.com/pehringer/simd/internal/avx"
 	"github.com/pehringer/simd/internal/avx2"
 	"github.com/pehringer/simd/internal/sse"
@@ -12,13 +13,11 @@ import (
 )
 
 func init() {
-	if sse.Supported() {
+	if cpu.X86.HasSSE2 {
 		addFloat32 = sse.AddFloat32
 		divFloat32 = sse.DivFloat32
 		mulFloat32 = sse.MulFloat32
 		subFloat32 = sse.SubFloat32
-	}
-	if sse2.Supported() {
 		addFloat64 = sse2.AddFloat64
 		addInt32 = sse2.AddInt32
 		addInt64 = sse2.AddInt64
@@ -34,10 +33,10 @@ func init() {
 		xorInt32 = sse2.XorInt32
 		xorInt64 = sse2.XorInt64
 	}
-	if sse41.Supported() {
+	if cpu.X86.HasSSE41 {
 		mulInt32 = sse41.MulInt32
 	}
-	if avx.Supported() {
+	if cpu.X86.HasAVX {
 		addFloat32 = avx.AddFloat32
 		addFloat64 = avx.AddFloat64
 		divFloat32 = avx.DivFloat32
@@ -47,7 +46,7 @@ func init() {
 		subFloat32 = avx.SubFloat32
 		subFloat64 = avx.SubFloat64
 	}
-	if avx2.Supported() {
+	if cpu.X86.HasAVX2 {
 		addInt32 = avx2.AddInt32
 		addInt64 = avx2.AddInt64
 		andInt32 = avx2.AndInt32

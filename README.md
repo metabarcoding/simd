@@ -9,23 +9,23 @@ Currently supports 64-bit x86 and 64-bit ARM processors.
 ## Simd Support
 |          |64-bit x86   |64-bit ARM|
 |----------|-------------|----------|
-|AddFloat32|SSE / AVX    |NEON      |
+|AddFloat32|SSE2 / AVX   |NEON      |
 |AddFloat64|SSE2 / AVX   |NEON      |
 |AddInt32  |SSE2 / AVX2  |NEON      |
 |AddInt64  |SSE2 / AVX2  |NEON      |
 |AndInt32  |SSE2 / AVX2  |          |
 |AndInt64  |SSE2 / AVX2  |          |
-|DivFloat32|SSE / AVX    |          |
+|DivFloat32|SSE2 / AVX   |          |
 |DivFloat64|SSE2 / AVX   |          |
 |DivInt32  |             |          |
 |DivInt64  |             |          |
-|MulFloat32|SSE / AVX    |NEON      |
+|MulFloat32|SSE2 / AVX   |NEON      |
 |MulFloat64|SSE2 / AVX   |NEON      |
 |MulInt32  |SSE4.1 / AVX2|NEON      |
 |MulInt64  |             |          |
 |OrInt32   |SSE2 / AVX2  |          |
 |OrInt64   |SSE2 / AVX2  |          |
-|SubFloat32|SSE / AVX    |NEON      |
+|SubFloat32|SSE2 / AVX   |NEON      |
 |SubFloat64|SSE2 / AVX   |NEON      |
 |SubInt32  |SSE2 / AVX2  |NEON      |
 |SubInt64  |SSE2 / AVX2  |NEON      |

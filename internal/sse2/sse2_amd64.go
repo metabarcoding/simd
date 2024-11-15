@@ -3,8 +3,6 @@
 
 package sse2
 
-func Supported() bool
-
 func AddFloat64(left, right, result []float64) int
 
 func AddInt32(left, right, result []int32) int
