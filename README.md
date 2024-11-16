@@ -29,8 +29,8 @@ Currently amd64 (x86_64) and arm64 processors are supported.
 |SubFloat64|SSE2 / AVX    |NEON |       |
 |SubInt32  |SSE2 / AVX2   |NEON |       |
 |SubInt64  |SSE2 / AVX2   |NEON |       |
-|XorInt32  |SSE2 / AVX2   |     |       |
-|XorInt64  |SSE2 / AVX2   |     |       |
+|XorInt32  |SSE2 / AVX2   |NEON |       |
+|XorInt64  |SSE2 / AVX2   |NEON |       |
 ## AMD64 Simd Performance:
 ![Large Vectors](images/LargeVectorsFloat32Addition.png)
 ![Medium Vectors](images/MediumVectorsFloat32Addition.png)
