@@ -14,7 +14,7 @@ Currently amd64 (x86_64) and arm64 processors are supported.
 |AddInt32  |SSE2 / AVX2   |NEON |       |
 |AddInt64  |SSE2 / AVX2   |NEON |       |
 |AndInt32  |SSE2 / AVX2   |NEON |       |
-|AndInt64  |SSE2 / AVX2   |     |       |
+|AndInt64  |SSE2 / AVX2   |NEON |       |
 |DivFloat32|SSE2 / AVX    |     |       |
 |DivFloat64|SSE2 / AVX    |     |       |
 |DivInt32  |              |     |       |
