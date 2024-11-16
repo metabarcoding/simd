@@ -1,4 +1,4 @@
-![logo](images/logoTB.png)
+![logo](images/logoBB.png)
 # SIMD (Single Instruction, Multiple Data)
 Simd support via Go assembly for arithmetic and bitwise operations.
 Allowing for parallel element-wise computations.
