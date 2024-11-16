@@ -1,3 +1,4 @@
+![logo](images/logoTB.png)
 # SIMD (Single Instruction, Multiple Data)
 Simd support via Go assembly for arithmetic and bitwise operations.
 Allowing for parallel element-wise computations.
@@ -32,7 +33,6 @@ Currently amd64 (x86_64) and arm64 processors are supported.
 |XorInt32  |SSE2 / AVX2   |NEON |               |
 |XorInt64  |SSE2 / AVX2   |NEON |               |
 ## AMD64 Simd Performance:
-![Large Vectors](images/LargeVectorsFloat32Addition.png)
-![Medium Vectors](images/MediumVectorsFloat32Addition.png)
-![Large Vectors](images/SmallVectorsFloat32Addition.png)  
+![Large Vectors](images/largeVectorsFloat32AdditionAmd64.png)
+![Medium Vectors](images/mediumVectorsFloat32AdditionAmd64.png)
 
