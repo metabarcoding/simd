@@ -15,6 +15,7 @@ func init() {
 		addInt32 = neon.AddInt32
 		addInt64 = neon.AddInt64
 		andInt32 = neon.AndInt32
+		andInt64 = neon.AndInt64
 		mulFloat32 = neon.MulFloat32
 		mulFloat64 = neon.MulFloat64
 		mulInt32 = neon.MulInt32
