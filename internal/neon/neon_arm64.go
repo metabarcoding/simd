@@ -13,6 +13,8 @@ func AddInt64(left, right, result []int64) int
 
 func AndInt32(left, right, result []int32) int
 
+func AndInt64(left, right, result []int64) int
+
 func MulFloat32(left, right, result []float32) int
 
 func MulFloat64(left, right, result []float64) int
