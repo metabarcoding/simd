@@ -25,7 +25,5 @@ func init() {
 		subFloat64 = neon.SubFloat64
 		subInt32 = neon.SubInt32
 		subInt64 = neon.SubInt64
-		xorInt32 = neon.XorInt32
-		xorInt64 = neon.XorInt64
 	}
 }

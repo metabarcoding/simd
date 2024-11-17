@@ -1,11 +1,11 @@
-![logo](images/logoBB.png)
+![logo](logo.png)
 # SIMD (Single Instruction, Multiple Data)
 Simd support via Go assembly for arithmetic and bitwise operations.
 Allowing for parallel element-wise computations.
 Resulting in **200 - 470%** speedup.
 Currently amd64 (x86_64) and arm64 processors are supported.
 ## Function Documentation
-- Online at [pkg.go.dev/github.com/pehringer/simd](https://pkg.go.dev/github.com/pehringer/simd).  
+- Online at [pkg.go.dev/github.com/pehringer/simd](https://pkg.go.dev/github.com/pehringer/simd).
 - Locally in ```simd.go``` GoDoc comments.
 ## Simd Support
 |          |amd64 (x86_64)|arm64|ppc64 / ppc64le|
@@ -30,9 +30,38 @@ Currently amd64 (x86_64) and arm64 processors are supported.
 |SubFloat64|SSE2 / AVX    |NEON |               |
 |SubInt32  |SSE2 / AVX2   |NEON |               |
 |SubInt64  |SSE2 / AVX2   |NEON |               |
-|XorInt32  |SSE2 / AVX2   |NEON |               |
-|XorInt64  |SSE2 / AVX2   |NEON |               |
-## AMD64 Simd Performance:
-![Large Vectors](images/largeVectorsFloat32AdditionAmd64.png)
-![Medium Vectors](images/mediumVectorsFloat32AdditionAmd64.png)
-
+|XorInt32  |SSE2 / AVX2   |     |               |
+|XorInt64  |SSE2 / AVX2   |     |               |
+## AMD64 AddFloat32 Performance:
+|Elements      |Go ns/op|SIMD ns/op|Performance|
+|--------------|--------|----------|-----------|
+|Small Vectors |        |          |           |
+|100           |42.5    |96.6      |0.4        |
+|200           |88.4    |99.9      |0.8        |
+|300           |127.6   |106.0     |1.2        |
+|400           |167.8   |110.7     |1.5        |
+|500           |208.8   |118.2     |1.7        |
+|600           |247.2   |123.3     |2.0        |
+|700           |286.5   |129.4     |2.2        |
+|800           |328.5   |131.4     |2.5        |
+|900           |362.7   |137.8     |2.6        |
+|Medium Vectors|        |          |           |
+|1000          |407.5   |139.6     |2.9        |
+|2000          |818.0   |182.9     |4.4        |
+|3000          |1207    |222.1     |5.4        |
+|4000          |1612    |290.0     |5.5        |
+|5000          |2028    |482.7     |4.2        |
+|6000          |2412    |544.5     |4.4        |
+|7000          |2846    |623.4     |4.5        |
+|8000          |3277    |747.4     |4.3        |
+|9000          |3681    |806.7     |4.5        |
+|Large Vectors |        |          |           |
+|10000         |4101    |858.6     |4.7        |
+|20000         |8218    |1744      |4.7        |
+|30000         |12188   |2587      |4.7        |
+|40000         |16363   |3277      |4.9        |
+|50000         |20343   |4074      |4.9        |
+|60000         |24265   |5029      |4.8        |
+|70000         |28435   |6210      |4.5        |
+|80000         |32298   |7519      |4.2        |
+|90000         |36328   |9987      |3.6        |

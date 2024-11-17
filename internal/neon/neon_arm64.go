@@ -32,7 +32,3 @@ func SubFloat64(left, right, result []float64) int
 func SubInt32(left, right, result []int32) int
 
 func SubInt64(left, right, result []int64) int
-
-func XorInt32(left, right, result []int32) int
-
-func XorInt64(left, right, result []int64) int
