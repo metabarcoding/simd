@@ -2,7 +2,7 @@
 # SIMD (Single Instruction, Multiple Data)
 Simd support via Go assembly for arithmetic and bitwise operations.
 Allowing for parallel element-wise computations.
-Resulting in **200 - 470%** speedup.
+Resulting in a ***100% to 400%*** speedup.
 Currently amd64 (x86_64) and arm64 processors are supported.
 ## Function Documentation
 - Online at [pkg.go.dev/github.com/pehringer/simd](https://pkg.go.dev/github.com/pehringer/simd).
@@ -65,3 +65,36 @@ Currently amd64 (x86_64) and arm64 processors are supported.
 |70000         |28435   |6210      |4.5        |
 |80000         |32298   |7519      |4.2        |
 |90000         |36328   |9987      |3.6        |
+## ARM64 AddFloat32 Performance:
+|Elements      |Go ns/op|SIMD ns/op|Performance|
+|--------------|--------|----------|-----------|
+|Small Vectors |        |          |           |
+|100           |51.8    |13.6      |3.8        |
+|200           |102.2   |24.2      |4.2        |
+|300           |152.8   |35.9      |4.2        |
+|400           |209.0   |47.7      |4.3        |
+|500           |258.7   |64.8      |3.9        |
+|600           |309.8   |73.4      |4.2        |
+|700           |359.6   |89.0      |4.0        |
+|800           |410.6   |101.9     |4.0        |
+|900           |460.3   |112.5     |4.0        |
+|Medium Vectors|        |          |           |
+|1000          |511.5   |124.3     |4.1        |
+|2000          |1015    |241.0     |4.2        |
+|3000          |1520    |356.9     |4.2        |
+|4000          |2024    |473.1     |4.2        |
+|5000          |2527    |589.9     |4.2        |
+|6000          |3032    |706.1     |4.2        |
+|7000          |3535    |822.5     |4.2        |
+|8000          |4039    |939.2     |4.3        |
+|9000          |4543    |1056      |4.3        |
+|Large Vectors |        |          |           |
+|10000         |5046    |1172      |4.3        |
+|20000         |10107   |2394      |4.2        |
+|30000         |15139   |3599      |4.2        |
+|40000         |20178   |4957      |4.0        |
+|50000         |25218   |6190      |4.0        |
+|60000         |30253   |7277      |4.1        |
+|70000         |35285   |8707      |4.0        |
+|80000         |40346   |9924      |4.0        |
+|90000         |45378   |11189     |4.0        |
