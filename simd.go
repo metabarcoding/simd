@@ -1,4 +1,5 @@
-// Simd support for arithmetic operations. Allowing for parallel element-wise computations.
+// SIMD support via Go assembly for arithmetic and bitwise operations.
+// Allowing for parallel element-wise computations.
 package simd
 
 import (
