@@ -32,6 +32,19 @@ Currently AMD64 (x86_64) and ARM64 processors are supported.
 |SubInt64  |SSE2 / AVX2   |NEON |               |
 |XorInt32  |SSE2 / AVX2   |     |               |
 |XorInt64  |SSE2 / AVX2   |     |               |
+## Make Targets
+#### Tests
+|Command              |Description                                                           |
+|---------------------|----------------------------------------------------------------------|
+|```make test```      |Compiles and runs tests natively on hardware.                         |
+|```make test_amd64```|Cross compiles for amd64 and runs tests via QEMU (```qemu-x86_64```). |
+|```make test_arm64```|Cross compiles for arm64 and runs tests via QEMU (```qemu-aarch64```).|
+#### Benchmarks
+|Command               |Description                                                                |
+|----------------------|---------------------------------------------------------------------------|
+|```make bench```      |Compiles and runs benchmarks natively on hardware.                         |
+|```make bench_amd64```|Cross compiles for amd64 and runs benchmarks via QEMU (```qemu-x86_64```). |
+|```make bench_arm64```|Cross compiles for arm64 and runs benchmarks via QEMU (```qemu-aarch64```).|
 ## AMD64 AddFloat32 Performance:
 |Elements      |Go ns/op|SIMD ns/op|Performance x|
 |--------------|--------|----------|-------------|
