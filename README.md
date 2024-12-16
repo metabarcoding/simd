@@ -10,23 +10,23 @@ Currently AMD64 (x86_64) and ARM64 processors are supported.
 ## SIMD Support
 |          |AMD64 (x86_64)|ARM64|PPC64 / PPC64LE|
 |----------|--------------|-----|---------------|
-|AddFloat32|SSE2 / AVX    |NEON |               |
+|AddFloat32|SSE / AVX     |NEON |               |
 |AddFloat64|SSE2 / AVX    |NEON |               |
 |AddInt32  |SSE2 / AVX2   |NEON |               |
 |AddInt64  |SSE2 / AVX2   |NEON |               |
 |AndInt32  |SSE2 / AVX2   |NEON |               |
 |AndInt64  |SSE2 / AVX2   |NEON |               |
-|DivFloat32|SSE2 / AVX    |     |               |
+|DivFloat32|SSE / AVX     |     |               |
 |DivFloat64|SSE2 / AVX    |     |               |
 |DivInt32  |              |     |               |
 |DivInt64  |              |     |               |
-|MulFloat32|SSE2 / AVX    |NEON |               |
+|MulFloat32|SSE / AVX     |NEON |               |
 |MulFloat64|SSE2 / AVX    |NEON |               |
 |MulInt32  |SSE4.1 / AVX2 |NEON |               |
 |MulInt64  |              |     |               |
 |OrInt32   |SSE2 / AVX2   |NEON |               |
 |OrInt64   |SSE2 / AVX2   |NEON |               |
-|SubFloat32|SSE2 / AVX    |NEON |               |
+|SubFloat32|SSE / AVX     |NEON |               |
 |SubFloat64|SSE2 / AVX    |NEON |               |
 |SubInt32  |SSE2 / AVX2   |NEON |               |
 |SubInt64  |SSE2 / AVX2   |NEON |               |
