@@ -59,4 +59,6 @@ func init() {
 		xorInt32 = avx2.XorInt32
 		xorInt64 = avx2.XorInt64
 	}
+	if cpu.X86.HasAVX512 {
+	}
 }
