@@ -8,30 +8,30 @@ Currently AMD64 (x86_64) and ARM64 processors are supported.
 - Online at [pkg.go.dev/github.com/pehringer/simd](https://pkg.go.dev/github.com/pehringer/simd).
 - Locally in ```simd.go``` GoDoc comments.
 ## SIMD Support
-|          |AMD64 (x86_64)|ARM64|PPC64 / PPC64LE|
-|----------|--------------|-----|---------------|
-|AddFloat32|SSE / AVX     |NEON |               |
-|AddFloat64|SSE2 / AVX    |NEON |               |
-|AddInt32  |SSE2 / AVX2   |NEON |               |
-|AddInt64  |SSE2 / AVX2   |NEON |               |
-|AndInt32  |SSE2 / AVX2   |NEON |               |
-|AndInt64  |SSE2 / AVX2   |NEON |               |
-|DivFloat32|SSE / AVX     |     |               |
-|DivFloat64|SSE2 / AVX    |     |               |
-|DivInt32  |              |     |               |
-|DivInt64  |              |     |               |
-|MulFloat32|SSE / AVX     |NEON |               |
-|MulFloat64|SSE2 / AVX    |NEON |               |
-|MulInt32  |SSE4.1 / AVX2 |NEON |               |
-|MulInt64  |              |     |               |
-|OrInt32   |SSE2 / AVX2   |NEON |               |
-|OrInt64   |SSE2 / AVX2   |NEON |               |
-|SubFloat32|SSE / AVX     |NEON |               |
-|SubFloat64|SSE2 / AVX    |NEON |               |
-|SubInt32  |SSE2 / AVX2   |NEON |               |
-|SubInt64  |SSE2 / AVX2   |NEON |               |
-|XorInt32  |SSE2 / AVX2   |     |               |
-|XorInt64  |SSE2 / AVX2   |     |               |
+|          |AMD64 (x86_64)          |ARM64|
+|----------|------------------------|-----|
+|AddFloat32|SSE / AVX / AVX512VL    |NEON |
+|AddFloat64|SSE2 / AVX / AVX512VL   |NEON |
+|AddInt32  |SSE2 / AVX2 / AVX512VL  |NEON |
+|AddInt64  |SSE2 / AVX2 / AVX512VL  |NEON |
+|AndInt32  |SSE2 / AVX2             |NEON |
+|AndInt64  |SSE2 / AVX2             |NEON |
+|DivFloat32|SSE / AVX / AVX512VL    |     |
+|DivFloat64|SSE2 / AVX / AVX512VL   |     |
+|DivInt32  |                        |     |
+|DivInt64  |                        |     |
+|MulFloat32|SSE / AVX / AVX512VL    |NEON |
+|MulFloat64|SSE2 / AVX / AVX512VL   |NEON |
+|MulInt32  |SSE4.1 / AVX2 / AVX512VL|NEON |
+|MulInt64  |                        |     |
+|OrInt32   |SSE2 / AVX2             |NEON |
+|OrInt64   |SSE2 / AVX2             |NEON |
+|SubFloat32|SSE / AVX / AVX512VL    |NEON |
+|SubFloat64|SSE2 / AVX / AVX512VL   |NEON |
+|SubInt32  |SSE2 / AVX2 / AVX512VL  |NEON |
+|SubInt64  |SSE2 / AVX2 / AVX512VL  |NEON |
+|XorInt32  |SSE2 / AVX2             |     |
+|XorInt64  |SSE2 / AVX2             |     |
 ## Make Targets
 #### Tests
 |Command              |Description                                                           |
