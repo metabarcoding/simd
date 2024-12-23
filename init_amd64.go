@@ -4,9 +4,11 @@
 package simd
 
 import (
+	"fmt"
 	"golang.org/x/sys/cpu"
 	"github.com/pehringer/simd/internal/avx"
 	"github.com/pehringer/simd/internal/avx2"
+	"github.com/pehringer/simd/internal/avx512vl"
 	"github.com/pehringer/simd/internal/sse"
 	"github.com/pehringer/simd/internal/sse2"
 	"github.com/pehringer/simd/internal/sse41"
@@ -60,5 +62,10 @@ func init() {
 		xorInt64 = avx2.XorInt64
 	}
 	if cpu.X86.HasAVX512VL {
+		fmt.Println("AVX512VL SUPPORTED")
+		addFloat32 = avx512vl.AddFloat32
+		divFloat32 = avx512vl.DivFloat32
+		mulFloat32 = avx512vl.MulFloat32
+		subFloat32 = avx512vl.SubFloat32
 	}
 }
