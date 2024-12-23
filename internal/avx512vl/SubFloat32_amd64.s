@@ -1,8 +1,8 @@
 //go:build amd64
 // +build amd64
 
-// func MulInt32(left, right, result []int32) int
-TEXT ·MulInt32(SB), 4, $0
+// func SubFloat32(left, right, result []float32) int
+TEXT ·SubFloat32(SB), 4, $0
     //Load slices lengths.
     MOVQ    leftLen+8(FP), AX
     MOVQ    rightLen+32(FP), BX
@@ -21,23 +21,23 @@ TEXT ·MulInt32(SB), 4, $0
 multipleDataLoop:
     MOVQ    CX, BX
     SUBQ    AX, BX
-    CMPQ    BX, $4
+    CMPQ    BX, $16
     JL      singleDataLoop
-    //Mul four int32 values.
-    MOVOU   (SI)(AX*4), X0
-    MOVOU   (DX)(AX*4), X1
-    PMULLD  X1, X0
-    MOVOU   X0, (DI)(AX*4)
-    ADDQ    $4, AX
+    //Sub sixteen float32 values.
+    VMOVUPS (SI)(AX*4), Z0
+    VMOVUPS (DX)(AX*4), Z1
+    VSUBPS  Z1, Z0, Z2
+    VMOVUPS Z2, (DI)(AX*4)
+    ADDQ    $16, AX
     JMP     multipleDataLoop
 singleDataLoop:
     CMPQ    AX, CX
     JGE     returnLength
-    //Mul one int32 value.
-    MOVL    (SI)(AX*4), R8
-    MOVL    (DX)(AX*4), R9
-    IMULL   R9, R8
-    MOVL    R8, (DI)(AX*4)
+    //Sub one float32 value.
+    MOVSS   (SI)(AX*4), X0
+    MOVSS   (DX)(AX*4), X1
+    SUBSS   X1, X0
+    MOVSS   X0, (DI)(AX*4)
     INCQ    AX
     JMP     singleDataLoop
 returnLength:

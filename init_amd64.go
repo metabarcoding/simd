@@ -7,6 +7,7 @@ import (
 	"golang.org/x/sys/cpu"
 	"github.com/pehringer/simd/internal/avx"
 	"github.com/pehringer/simd/internal/avx2"
+	"github.com/pehringer/simd/internal/avx512vl"
 	"github.com/pehringer/simd/internal/sse"
 	"github.com/pehringer/simd/internal/sse2"
 	"github.com/pehringer/simd/internal/sse41"
@@ -58,5 +59,20 @@ func init() {
 		subInt64 = sse2.SubInt64
 		xorInt32 = avx2.XorInt32
 		xorInt64 = avx2.XorInt64
+	}
+	if cpu.X86.HasAVX512VL {
+		addFloat32 = avx512vl.AddFloat32
+		addFloat64 = avx512vl.AddFloat64
+		addInt32 = avx512vl.AddInt32
+		addInt64 = avx512vl.AddInt64
+		divFloat32 = avx512vl.DivFloat32
+		divFloat64 = avx512vl.DivFloat64
+		mulFloat32 = avx512vl.MulFloat32
+		mulFloat64 = avx512vl.MulFloat64
+		mulInt32 = avx512vl.MulInt32
+		subFloat32 = avx512vl.SubFloat32
+		subFloat64 = avx512vl.SubFloat64
+		subInt32 = avx512vl.SubInt32
+		subInt64 = avx512vl.SubInt64
 	}
 }
