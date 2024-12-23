@@ -64,8 +64,12 @@ func init() {
 	if cpu.X86.HasAVX512VL {
 		fmt.Println("AVX512VL SUPPORTED")
 		addFloat32 = avx512vl.AddFloat32
+		addFloat64 = avx512vl.AddFloat64
 		divFloat32 = avx512vl.DivFloat32
+		divFloat64 = avx512vl.DivFloat64
 		mulFloat32 = avx512vl.MulFloat32
+		mulFloat64 = avx512vl.MulFloat64
 		subFloat32 = avx512vl.SubFloat32
+		subFloat64 = avx512vl.SubFloat64
 	}
 }
