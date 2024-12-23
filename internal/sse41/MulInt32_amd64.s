@@ -26,7 +26,7 @@ multipleDataLoop:
     //Mul four int32 values.
     MOVOU   (SI)(AX*4), X0
     MOVOU   (DX)(AX*4), X1
-    PMULLD   X1, X0
+    PMULLD  X1, X0
     MOVOU   X0, (DI)(AX*4)
     ADDQ    $4, AX
     JMP     multipleDataLoop
