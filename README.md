@@ -14,8 +14,8 @@ Currently AMD64 (x86_64) and ARM64 processors are supported.
 |AddFloat64|SSE2 / AVX / AVX512VL   |NEON |
 |AddInt32  |SSE2 / AVX2 / AVX512VL  |NEON |
 |AddInt64  |SSE2 / AVX2 / AVX512VL  |NEON |
-|AndInt32  |SSE2 / AVX2             |NEON |
-|AndInt64  |SSE2 / AVX2             |NEON |
+|AndInt32  |SSE2 / AVX2 / AVX512VL  |NEON |
+|AndInt64  |SSE2 / AVX2 / AVX512VL  |NEON |
 |DivFloat32|SSE / AVX / AVX512VL    |     |
 |DivFloat64|SSE2 / AVX / AVX512VL   |     |
 |DivInt32  |                        |     |
@@ -24,14 +24,14 @@ Currently AMD64 (x86_64) and ARM64 processors are supported.
 |MulFloat64|SSE2 / AVX / AVX512VL   |NEON |
 |MulInt32  |SSE4.1 / AVX2 / AVX512VL|NEON |
 |MulInt64  |                        |     |
-|OrInt32   |SSE2 / AVX2             |NEON |
-|OrInt64   |SSE2 / AVX2             |NEON |
+|OrInt32   |SSE2 / AVX2 / AVX512VL  |NEON |
+|OrInt64   |SSE2 / AVX2 / AVX512VL  |NEON |
 |SubFloat32|SSE / AVX / AVX512VL    |NEON |
 |SubFloat64|SSE2 / AVX / AVX512VL   |NEON |
 |SubInt32  |SSE2 / AVX2 / AVX512VL  |NEON |
 |SubInt64  |SSE2 / AVX2 / AVX512VL  |NEON |
-|XorInt32  |SSE2 / AVX2             |     |
-|XorInt64  |SSE2 / AVX2             |     |
+|XorInt32  |SSE2 / AVX2 / AVX512VL  |     |
+|XorInt64  |SSE2 / AVX2 / AVX512VL  |     |
 ## Make Targets
 #### Tests
 |Command              |Description                                                           |
