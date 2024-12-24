@@ -65,14 +65,20 @@ func init() {
 		addFloat64 = avx512vl.AddFloat64
 		addInt32 = avx512vl.AddInt32
 		addInt64 = avx512vl.AddInt64
+		andInt32 = avx512vl.AndInt32
+		andInt64 = avx512vl.AndInt64
 		divFloat32 = avx512vl.DivFloat32
 		divFloat64 = avx512vl.DivFloat64
 		mulFloat32 = avx512vl.MulFloat32
 		mulFloat64 = avx512vl.MulFloat64
 		mulInt32 = avx512vl.MulInt32
+		orInt32 = avx512vl.OrInt32
+		orInt64 = avx512vl.OrInt64
 		subFloat32 = avx512vl.SubFloat32
 		subFloat64 = avx512vl.SubFloat64
 		subInt32 = avx512vl.SubInt32
 		subInt64 = avx512vl.SubInt64
+		xorInt32 = avx512vl.XorInt32
+		xorInt64 = avx512vl.XorInt64
 	}
 }
