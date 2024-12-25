@@ -72,6 +72,7 @@ func init() {
 		mulFloat32 = avx512vl.MulFloat32
 		mulFloat64 = avx512vl.MulFloat64
 		mulInt32 = avx512vl.MulInt32
+		mulInt64 = avx512vl.MulInt64
 		orInt32 = avx512vl.OrInt32
 		orInt64 = avx512vl.OrInt64
 		subFloat32 = avx512vl.SubFloat32

@@ -25,6 +25,8 @@ func MulFloat64(left, right, result []float64) int
 
 func MulInt32(left, right, result []int32) int
 
+func MulInt64(left, right, result []int64) int
+
 func OrInt32(left, right, result []int32) int
 
 func OrInt64(left, right, result []int64) int
