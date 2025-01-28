@@ -18,6 +18,8 @@ var (
 	divFloat64 shared.Operation[float64] = fallback.Div[float64]
 	divInt32   shared.Operation[int32]   = fallback.Div[int32]
 	divInt64   shared.Operation[int64]   = fallback.Div[int64]
+	maxFloat32 shared.Operation[float32] = fallback.Max[float32]
+	minFloat32 shared.Operation[float32] = fallback.Min[float32]
 	mulFloat32 shared.Operation[float32] = fallback.Mul[float32]
 	mulFloat64 shared.Operation[float64] = fallback.Mul[float64]
 	mulInt32   shared.Operation[int32]   = fallback.Mul[int32]
@@ -100,6 +102,20 @@ func DivInt32(left, right, result []int32) int {
 // Returns the number of operations performed.
 func DivInt64(left, right, result []int64) int {
 	return divInt64(left, right, result)
+}
+
+// MaxFloat32 performs element-wise maximum on left and right, storing the maxes in result.
+// The operation is performed up to the shortest length of left, right, and result.
+// Returns the number of operations performed.
+func MaxFloat32(left, right, result []float32) int {
+	return maxFloat32(left, right, result)
+}
+
+// MinFloat32 performs element-wise minimum on left and right, storing the mins in result.
+// The operation is performed up to the shortest length of left, right, and result.
+// Returns the number of operations performed.
+func MinFloat32(left, right, result []float32) int {
+	return minFloat32(left, right, result)
 }
 
 // MulFloat32 performs element-wise multiplication on left and right, storing the products in result.

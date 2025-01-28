@@ -1,6 +1,6 @@
 ![SIMD](logo/300x300.png)
 # SIMD (Single Instruction, Multiple Data)
-SIMD support via Go assembly for arithmetic and bitwise operations.
+SIMD support via Go assembly for arithmetic, bitwise, maximum, and minimum operations.
 Allowing for parallel element-wise computations.
 Resulting in a ***100% to 400%*** speedup.
 Currently AMD64 (x86_64) and ARM64 processors are supported.
@@ -20,6 +20,8 @@ Currently AMD64 (x86_64) and ARM64 processors are supported.
 |DivFloat64|SSE2 / AVX / AVX512VL   |     |
 |DivInt32  |                        |     |
 |DivInt64  |                        |     |
+|MaxFloat32|SSE                     |     |
+|MinFloat32|SSE                     |     |
 |MulFloat32|SSE / AVX / AVX512VL    |NEON |
 |MulFloat64|SSE2 / AVX / AVX512VL   |NEON |
 |MulInt32  |SSE4.1 / AVX2 / AVX512VL|NEON |
