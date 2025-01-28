@@ -17,6 +17,8 @@ func init() {
 	if cpu.X86.HasSSE2 {
 		addFloat32 = sse.AddFloat32
 		divFloat32 = sse.DivFloat32
+		maxFloat32 = sse.MaxFloat32
+		minFloat32 = sse.MinFloat32
 		mulFloat32 = sse.MulFloat32
 		subFloat32 = sse.SubFloat32
 		addFloat64 = sse2.AddFloat64
