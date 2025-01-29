@@ -228,6 +228,26 @@ func TestMaxFloat32PowerTwo(t *testing.T) {
 	shared.CheckOperation(t, MaxFloat32, fallback.Max, shared.Small[float32](8192), shared.Small[float32](8192), shared.Large[float32](8192))
 }
 
+func TestMaxFloat64Zero(t *testing.T) {
+	shared.CheckOperation(t, MaxFloat64, fallback.Max, []float64{}, []float64{}, []float64{})
+}
+
+func TestMaxFloat64Prime(t *testing.T) {
+	shared.CheckOperation(t, MaxFloat64, fallback.Max, shared.Small[float64](11), shared.Small[float64](13), shared.Small[float64](17))
+	shared.CheckOperation(t, MaxFloat64, fallback.Max, shared.Small[float64](29), shared.Small[float64](19), shared.Large[float64](23))
+	shared.CheckOperation(t, MaxFloat64, fallback.Max, shared.Small[float64](37), shared.Large[float64](41), shared.Small[float64](31))
+	shared.CheckOperation(t, MaxFloat64, fallback.Max, shared.Small[float64](43), shared.Large[float64](47), shared.Large[float64](53))
+	shared.CheckOperation(t, MaxFloat64, fallback.Max, shared.Large[float64](67), shared.Small[float64](59), shared.Small[float64](61))
+	shared.CheckOperation(t, MaxFloat64, fallback.Max, shared.Large[float64](73), shared.Small[float64](79), shared.Large[float64](71))
+}
+
+func TestMaxFloat64PowerTwo(t *testing.T) {
+	shared.CheckOperation(t, MaxFloat64, fallback.Max, shared.Large[float64](1024), shared.Large[float64](1024), shared.Small[float64](1024))
+	shared.CheckOperation(t, MaxFloat64, fallback.Max, shared.Large[float64](2048), shared.Large[float64](2048), shared.Large[float64](2048))
+	shared.CheckOperation(t, MaxFloat64, fallback.Max, shared.Small[float64](4096), shared.Small[float64](4096), shared.Small[float64](4096))
+	shared.CheckOperation(t, MaxFloat64, fallback.Max, shared.Small[float64](8192), shared.Small[float64](8192), shared.Large[float64](8192))
+}
+
 func TestMinFloat32Zero(t *testing.T) {
 	shared.CheckOperation(t, MinFloat32, fallback.Min, []float32{}, []float32{}, []float32{})
 }
@@ -246,6 +266,26 @@ func TestMinFloat32PowerTwo(t *testing.T) {
 	shared.CheckOperation(t, MinFloat32, fallback.Min, shared.Large[float32](2048), shared.Large[float32](2048), shared.Large[float32](2048))
 	shared.CheckOperation(t, MinFloat32, fallback.Min, shared.Small[float32](4096), shared.Small[float32](4096), shared.Small[float32](4096))
 	shared.CheckOperation(t, MinFloat32, fallback.Min, shared.Small[float32](8192), shared.Small[float32](8192), shared.Large[float32](8192))
+}
+
+func TestMinFloat64Zero(t *testing.T) {
+	shared.CheckOperation(t, MinFloat64, fallback.Min, []float64{}, []float64{}, []float64{})
+}
+
+func TestMinFloat64Prime(t *testing.T) {
+	shared.CheckOperation(t, MinFloat64, fallback.Min, shared.Small[float64](11), shared.Small[float64](13), shared.Small[float64](17))
+	shared.CheckOperation(t, MinFloat64, fallback.Min, shared.Small[float64](29), shared.Small[float64](19), shared.Large[float64](23))
+	shared.CheckOperation(t, MinFloat64, fallback.Min, shared.Small[float64](37), shared.Large[float64](41), shared.Small[float64](31))
+	shared.CheckOperation(t, MinFloat64, fallback.Min, shared.Small[float64](43), shared.Large[float64](47), shared.Large[float64](53))
+	shared.CheckOperation(t, MinFloat64, fallback.Min, shared.Large[float64](67), shared.Small[float64](59), shared.Small[float64](61))
+	shared.CheckOperation(t, MinFloat64, fallback.Min, shared.Large[float64](73), shared.Small[float64](79), shared.Large[float64](71))
+}
+
+func TestMinFloat64PowerTwo(t *testing.T) {
+	shared.CheckOperation(t, MinFloat64, fallback.Min, shared.Large[float64](1024), shared.Large[float64](1024), shared.Small[float64](1024))
+	shared.CheckOperation(t, MinFloat64, fallback.Min, shared.Large[float64](2048), shared.Large[float64](2048), shared.Large[float64](2048))
+	shared.CheckOperation(t, MinFloat64, fallback.Min, shared.Small[float64](4096), shared.Small[float64](4096), shared.Small[float64](4096))
+	shared.CheckOperation(t, MinFloat64, fallback.Min, shared.Small[float64](8192), shared.Small[float64](8192), shared.Large[float64](8192))
 }
 
 func TestMulFloat32Zero(t *testing.T) {
@@ -649,11 +689,29 @@ func ExampleMaxFloat32() {
 	// Output: 4 [3 9 4 8 0 0]
 }
 
+func ExampleMaxFloat64() {
+	left := []float64{1, 9, 2, 8}
+	right := []float64{3, 7, 4, 6, 5}
+	result := []float64{0, 0, 0, 0, 0, 0}
+	length := MaxFloat64(left, right, result)
+	fmt.Print(length, result)
+	// Output: 4 [3 9 4 8 0 0]
+}
+
 func ExampleMinFloat32() {
 	left := []float32{1, 9, 2, 8}
 	right := []float32{3, 7, 4, 6, 5}
 	result := []float32{0, 0, 0, 0, 0, 0}
 	length := MinFloat32(left, right, result)
+	fmt.Print(length, result)
+	// Output: 4 [1 7 2 6 0 0]
+}
+
+func ExampleMinFloat64() {
+	left := []float64{1, 9, 2, 8}
+	right := []float64{3, 7, 4, 6, 5}
+	result := []float64{0, 0, 0, 0, 0, 0}
+	length := MinFloat64(left, right, result)
 	fmt.Print(length, result)
 	// Output: 4 [1 7 2 6 0 0]
 }
