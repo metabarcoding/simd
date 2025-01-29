@@ -27,6 +27,8 @@ func init() {
 		andInt32 = sse2.AndInt32
 		andInt64 = sse2.AndInt64
 		divFloat64 = sse2.DivFloat64
+		maxFloat64 = sse2.MaxFloat64
+		minFloat64 = sse2.MinFloat64
 		mulFloat64 = sse2.MulFloat64
 		orInt32 = sse2.OrInt32
 		orInt64 = sse2.OrInt64

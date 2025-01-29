@@ -15,6 +15,10 @@ func AndInt64(left, right, result []int64) int
 
 func DivFloat64(left, right, result []float64) int
 
+func MaxFloat64(left, right, result []float64) int
+
+func MinFloat64(left, right, result []float64) int
+
 func MulFloat64(left, right, result []float64) int
 
 func OrInt32(left, right, result []int32) int
