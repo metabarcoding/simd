@@ -20,8 +20,12 @@ var (
 	divInt64   shared.Operation[int64]   = fallback.Div[int64]
 	maxFloat32 shared.Operation[float32] = fallback.Max[float32]
 	maxFloat64 shared.Operation[float64] = fallback.Max[float64]
+	maxInt32   shared.Operation[int32]   = fallback.Max[int32]
+	maxInt64   shared.Operation[int64]   = fallback.Max[int64]
 	minFloat32 shared.Operation[float32] = fallback.Min[float32]
 	minFloat64 shared.Operation[float64] = fallback.Min[float64]
+	minInt32   shared.Operation[int32]   = fallback.Min[int32]
+	minInt64   shared.Operation[int64]   = fallback.Min[int64]
 	mulFloat32 shared.Operation[float32] = fallback.Mul[float32]
 	mulFloat64 shared.Operation[float64] = fallback.Mul[float64]
 	mulInt32   shared.Operation[int32]   = fallback.Mul[int32]
@@ -120,6 +124,20 @@ func MaxFloat64(left, right, result []float64) int {
 	return maxFloat64(left, right, result)
 }
 
+// MaxInt32 performs element-wise maximum on left and right, storing the maxes in result.
+// The operation is performed up to the shortest length of left, right, and result.
+// Returns the number of operations performed.
+func MaxInt32(left, right, result []int32) int {
+	return maxInt32(left, right, result)
+}
+
+// MaxInt64 performs element-wise maximum on left and right, storing the maxes in result.
+// The operation is performed up to the shortest length of left, right, and result.
+// Returns the number of operations performed.
+func MaxInt64(left, right, result []int64) int {
+	return maxInt64(left, right, result)
+}
+
 // MinFloat32 performs element-wise minimum on left and right, storing the mins in result.
 // The operation is performed up to the shortest length of left, right, and result.
 // Returns the number of operations performed.
@@ -132,6 +150,20 @@ func MinFloat32(left, right, result []float32) int {
 // Returns the number of operations performed.
 func MinFloat64(left, right, result []float64) int {
 	return minFloat64(left, right, result)
+}
+
+// MinInt32 performs element-wise minimum on left and right, storing the mins in result.
+// The operation is performed up to the shortest length of left, right, and result.
+// Returns the number of operations performed.
+func MinInt32(left, right, result []int32) int {
+	return minInt32(left, right, result)
+}
+
+// MinInt64 performs element-wise minimum on left and right, storing the mins in result.
+// The operation is performed up to the shortest length of left, right, and result.
+// Returns the number of operations performed.
+func MinInt64(left, right, result []int64) int {
+	return minInt64(left, right, result)
 }
 
 // MulFloat32 performs element-wise multiplication on left and right, storing the products in result.
