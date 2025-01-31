@@ -39,6 +39,8 @@ func init() {
 		xorInt64 = sse2.XorInt64
 	}
 	if cpu.X86.HasSSE41 {
+		maxInt32 = sse41.MaxInt32
+		minInt32 = sse41.MinInt32
 		mulInt32 = sse41.MulInt32
 	}
 	if cpu.X86.HasAVX {
