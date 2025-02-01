@@ -48,6 +48,10 @@ func init() {
 		addFloat64 = avx.AddFloat64
 		divFloat32 = avx.DivFloat32
 		divFloat64 = avx.DivFloat64
+		maxFloat32 = avx.MaxFloat32
+		maxFloat64 = avx.MaxFloat64
+		minFloat32 = avx.MinFloat32
+		minFloat64 = avx.MinFloat64
 		mulFloat32 = avx.MulFloat32
 		mulFloat64 = avx.MulFloat64
 		subFloat32 = avx.SubFloat32
