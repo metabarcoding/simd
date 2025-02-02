@@ -11,6 +11,10 @@ func AndInt32(left, right, result []int32) int
 
 func AndInt64(left, right, result []int64) int
 
+func MaxInt32(left, right, result []int32) int
+
+func MinInt32(left, right, result []int32) int
+
 func MulInt32(left, right, result []int32) int
 
 func OrInt32(left, right, result []int32) int

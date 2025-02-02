@@ -62,6 +62,8 @@ func init() {
 		addInt64 = avx2.AddInt64
 		andInt32 = avx2.AndInt32
 		andInt64 = avx2.AndInt64
+		maxInt32 = avx2.MaxInt32
+		minInt32 = avx2.MinInt32
 		mulInt32 = avx2.MulInt32
 		orInt32 = avx2.OrInt32
 		orInt64 = avx2.OrInt64
