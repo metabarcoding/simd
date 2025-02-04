@@ -20,14 +20,14 @@ Currently AMD64 (x86_64) and ARM64 processors are supported.
 |DivFloat64|SSE2 / AVX / AVX512VL   |     |
 |DivInt32  |                        |     |
 |DivInt64  |                        |     |
-|MaxFloat32|SSE / AVX               |     |
-|MaxFloat64|SSE2 / AVX              |     |
-|MaxInt32  |SSE4.1 / AVX2           |     |
-|MaxInt64  |                        |     |
-|MinFloat32|SSE / AVX               |     |
-|MinFloat64|SSE2 / AVX              |     |
-|MinInt32  |SSE4.1 / AVX2           |     |
-|MinInt64  |                        |     |
+|MaxFloat32|SSE / AVX / AVX512VL    |     |
+|MaxFloat64|SSE2 / AVX / AVX512VL   |     |
+|MaxInt32  |SSE4.1 / AVX2 / AVX512VL|     |
+|MaxInt64  |AVX512VL                |     |
+|MinFloat32|SSE / AVX / AVX512VL    |     |
+|MinFloat64|SSE2 / AVX / AVX512VL   |     |
+|MinInt32  |SSE4.1 / AVX2 / AVX512VL|     |
+|MinInt64  |AVX512VL                |     |
 |MulFloat32|SSE / AVX / AVX512VL    |NEON |
 |MulFloat64|SSE2 / AVX / AVX512VL   |NEON |
 |MulInt32  |SSE4.1 / AVX2 / AVX512VL|NEON |

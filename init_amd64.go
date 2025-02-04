@@ -81,6 +81,14 @@ func init() {
 		andInt64 = avx512vl.AndInt64
 		divFloat32 = avx512vl.DivFloat32
 		divFloat64 = avx512vl.DivFloat64
+		maxFloat32 = avx512vl.MaxFloat32
+		maxFloat64 = avx512vl.MaxFloat64
+		maxInt32 = avx512vl.MaxInt32
+		maxInt64 = avx512vl.MaxInt64
+		minFloat32 = avx512vl.MinFloat32
+		minFloat64 = avx512vl.MinFloat64
+		minInt32 = avx512vl.MinInt32
+		minInt64 = avx512vl.MinInt64
 		mulFloat32 = avx512vl.MulFloat32
 		mulFloat64 = avx512vl.MulFloat64
 		mulInt32 = avx512vl.MulInt32
