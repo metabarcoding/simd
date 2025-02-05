@@ -1,4 +1,4 @@
-package shared
+package data
 
 type (
 	Floating                        interface{ float32 | float64 }

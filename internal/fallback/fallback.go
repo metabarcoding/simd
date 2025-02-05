@@ -1,10 +1,10 @@
 package fallback
 
 import (
-	"github.com/pehringer/simd/internal/shared"
+	"github.com/pehringer/simd/internal/data"
 )
 
-func Add[T shared.Floating | shared.Integer](left, right, result []T) int {
+func Add[T data.Floating | data.Integer](left, right, result []T) int {
 	n := len(result)
 	if m := len(left); m < n {
 		n = m
@@ -25,7 +25,7 @@ func Add[T shared.Floating | shared.Integer](left, right, result []T) int {
 	return n
 }
 
-func And[T shared.Integer](left, right, result []T) int {
+func And[T data.Integer](left, right, result []T) int {
 	n := len(result)
 	if m := len(left); m < n {
 		n = m
@@ -46,7 +46,7 @@ func And[T shared.Integer](left, right, result []T) int {
 	return n
 }
 
-func Div[T shared.Floating | shared.Integer](left, right, result []T) int {
+func Div[T data.Floating | data.Integer](left, right, result []T) int {
 	n := len(result)
 	if m := len(left); m < n {
 		n = m
@@ -67,7 +67,7 @@ func Div[T shared.Floating | shared.Integer](left, right, result []T) int {
 	return n
 }
 
-func Max[T shared.Floating | shared.Integer](left, right, result []T) int {
+func Max[T data.Floating | data.Integer](left, right, result []T) int {
 	n := len(result)
 	if m := len(left); m < n {
 		n = m
@@ -88,7 +88,7 @@ func Max[T shared.Floating | shared.Integer](left, right, result []T) int {
 	return n
 }
 
-func Min[T shared.Floating | shared.Integer](left, right, result []T) int {
+func Min[T data.Floating | data.Integer](left, right, result []T) int {
 	n := len(result)
 	if m := len(left); m < n {
 		n = m
@@ -109,7 +109,7 @@ func Min[T shared.Floating | shared.Integer](left, right, result []T) int {
 	return n
 }
 
-func Mul[T shared.Floating | shared.Integer](left, right, result []T) int {
+func Mul[T data.Floating | data.Integer](left, right, result []T) int {
 	n := len(result)
 	if m := len(left); m < n {
 		n = m
@@ -130,7 +130,7 @@ func Mul[T shared.Floating | shared.Integer](left, right, result []T) int {
 	return n
 }
 
-func Or[T shared.Integer](left, right, result []T) int {
+func Or[T data.Integer](left, right, result []T) int {
 	n := len(result)
 	if m := len(left); m < n {
 		n = m
@@ -151,7 +151,7 @@ func Or[T shared.Integer](left, right, result []T) int {
 	return n
 }
 
-func Sub[T shared.Floating | shared.Integer](left, right, result []T) int {
+func Sub[T data.Floating | data.Integer](left, right, result []T) int {
 	n := len(result)
 	if m := len(left); m < n {
 		n = m
@@ -172,7 +172,7 @@ func Sub[T shared.Floating | shared.Integer](left, right, result []T) int {
 	return n
 }
 
-func Xor[T shared.Integer](left, right, result []T) int {
+func Xor[T data.Integer](left, right, result []T) int {
 	n := len(result)
 	if m := len(left); m < n {
 		n = m

@@ -1,4 +1,4 @@
-////go:build amd64
+//go:build amd64
 // +build amd64
 
 // func MaxFloat32(left, right, result []float32) int

@@ -47,12 +47,6 @@ Currently AMD64 (x86_64) and ARM64 processors are supported.
 |```make test```      |Compiles and runs tests natively on hardware.                         |
 |```make test_amd64```|Cross compiles for amd64 and runs tests via QEMU (```qemu-x86_64```). |
 |```make test_arm64```|Cross compiles for arm64 and runs tests via QEMU (```qemu-aarch64```).|
-#### Benchmarks
-|Command               |Description                                                                |
-|----------------------|---------------------------------------------------------------------------|
-|```make bench```      |Compiles and runs benchmarks natively on hardware.                         |
-|```make bench_amd64```|Cross compiles for amd64 and runs benchmarks via QEMU (```qemu-x86_64```). |
-|```make bench_arm64```|Cross compiles for arm64 and runs benchmarks via QEMU (```qemu-aarch64```).|
 ## AMD64 Performance (AMD Ryzen 7 7840U / DDR5 SO-DIMM)
 |Elements      |Go ns/op|SIMD ns/op|Performance x|
 |--------------|--------|----------|-------------|
