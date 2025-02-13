@@ -5,8 +5,9 @@ Allowing for parallel element-wise computations.
 Resulting in a ***100% to 400%*** speedup.
 Currently AMD64 (x86_64) and ARM64 processors are supported.
 ## Function Documentation
-- Online at [pkg.go.dev/github.com/pehringer/simd](https://pkg.go.dev/github.com/pehringer/simd).
-- Locally in ```simd.go``` GoDoc comments.
+- [pkg.go.dev/github.com/pehringer/simd](https://pkg.go.dev/github.com/pehringer/simd).
+- ```simd.go``` (GoDoc comments)
+- ```simd_test.go``` (GoDoc examples)
 ## SIMD Support
 |          |AMD64 (x86_64)          |ARM64|
 |----------|------------------------|-----|
