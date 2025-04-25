@@ -16,7 +16,7 @@ func checkSlice[T data.Floating | data.Integer](t *testing.T, test, control []T)
 		t.Errorf("capacities not equal")
 		return false
 	}
-	for i := 0; i < len(control); i++ {
+	for i := range len(control) {
 		if test[i] != control[i] {
 			t.Errorf("elements not equal")
 			return false
@@ -55,7 +55,7 @@ var (
 
 func large[T data.Floating | data.Integer](length int) []T {
 	elements := make([]T, length)
-	for i := 0; i < length; i++ {
+	for i := range length {
 		elements[i] = T(decrement)
 		decrement--
 	}
@@ -64,7 +64,7 @@ func large[T data.Floating | data.Integer](length int) []T {
 
 func small[T data.Floating | data.Integer](length int) []T {
 	elements := make([]T, length)
-	for i := 0; i < length; i++ {
+	for i := range length {
 		elements[i] = T(increment)
 		increment++
 	}
