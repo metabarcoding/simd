@@ -1,5 +1,11 @@
-![SIMD](logo/300x300.png)
-# SIMD (Single Instruction, Multiple Data)
+```
+[_]       [_]            [_]         [_]
+[_]       [_]            [_]         [_]
+[S]ingle  [I]nstruction  [M]ultiple  [D]ata
+[_]       [_]            [_]         [_]
+[_]       [_]            [_]         [_]
+```
+
 SIMD support via Go assembly for arithmetic, bitwise, maximum, and minimum operations.
 Allowing for parallel element-wise computations.
 Resulting in a ***100% to 400%*** speedup.
