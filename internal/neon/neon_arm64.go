@@ -5,6 +5,14 @@ package neon
 
 func AddFloat32(left, right, result []float32) int
 
+func MaxFloat32(left, right, result []float32) int
+
+func MinFloat32(left, right, result []float32) int
+
+func MinInt32(left, right, result []int32) int
+
+func MaxInt32(left, right, result []int32) int
+
 func AddFloat64(left, right, result []float64) int
 
 func AddInt32(left, right, result []int32) int
