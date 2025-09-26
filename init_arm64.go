@@ -4,8 +4,8 @@
 package simd
 
 import (
-	"golang.org/x/sys/cpu"
 	"github.com/pehringer/simd/internal/neon"
+	"golang.org/x/sys/cpu"
 )
 
 func init() {
@@ -16,6 +16,10 @@ func init() {
 		addInt64 = neon.AddInt64
 		andInt32 = neon.AndInt32
 		andInt64 = neon.AndInt64
+		maxFloat32 = neon.MaxFloat32
+		maxInt32 = neon.MaxInt32
+		minFloat32 = neon.MinFloat32
+		minInt32 = neon.MinInt32
 		mulFloat32 = neon.MulFloat32
 		mulFloat64 = neon.MulFloat64
 		mulInt32 = neon.MulInt32
